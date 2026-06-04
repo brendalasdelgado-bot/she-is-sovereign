@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome — Write Your Own Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --midnight: #0F1A1C;
+    --forest: #162320;
+    --cream: #FAF7F2;
+    --terracotta: #C17A5A;
+    --terracotta-light: #E8C4B0;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --sage: #8A9E8C;
+    --border-dark: rgba(255,255,255,0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--midnight);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Background glow */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(193,122,90,0.12) 0%, transparent 60%);
+    animation: breathe 8s ease-in-out infinite;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px; right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 65%);
+    animation: breathe 11s ease-in-out infinite reverse;
+    z-index: 0;
+  }
+
+  @keyframes breathe {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+  }
+  @keyframes expand {
+    from { width: 0; }
+    to { width: 80px; }
+  }
+
+  .page {
+    position: relative; z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 60px 32px;
+    text-align: center;
+  }
+
+  .arrival-mark {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,169,110,0.3);
+    background: rgba(201,169,110,0.06);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 40px;
+    animation: fadeUp 0.8s ease forwards;
+    font-size: 24px;
+  }
+
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    font-weight: 500; margin-bottom: 24px;
+    display: block;
+    animation: fadeUp 0.8s ease 0.1s forwards; opacity: 0;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 300; line-height: 1.08;
+    color: var(--cream); margin-bottom: 8px;
+    animation: fadeUp 0.9s ease 0.2s forwards; opacity: 0;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+
+  .divider {
+    width: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--terracotta), transparent);
+    margin: 32px auto;
+    animation: expand 1s ease 0.8s forwards;
+  }
+
+  .message {
+    font-size: clamp(16px, 2.2vw, 19px);
+    color: rgba(250,247,242,0.7);
+    line-height: 1.8; margin-bottom: 20px;
+    animation: fadeUp 0.9s ease 0.4s forwards; opacity: 0;
+  }
+  .message strong { color: var(--cream); font-weight: 400; }
+
+  .quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-style: italic; font-weight: 300;
+    color: var(--terracotta-light);
+    line-height: 1.5;
+    padding: 32px 0;
+    animation: fadeUp 0.9s ease 0.6s forwards; opacity: 0;
+  }
+
+  .next-steps {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-dark);
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin: 40px 0;
+    text-align: left;
+    animation: fadeUp 0.9s ease 0.7s forwards; opacity: 0;
+  }
+  .next-steps-label {
+    font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--sage);
+    font-weight: 500; margin-bottom: 20px; display: block;
+  }
+  .next-step {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 12px 0; border-bottom: 1px solid var(--border-dark);
+    font-size: 15px; color: rgba(250,247,242,0.6); line-height: 1.6;
+  }
+  .next-step:last-child { border-bottom: none; }
+  .step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: var(--gold);
+    opacity: 0.5; flex-shrink: 0; line-height: 1.2;
+  }
+
+  .signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-style: italic;
+    color: rgba(250,247,242,0.4);
+    margin-top: 40px;
+    animation: fadeUp 0.9s ease 0.9s forwards; opacity: 0;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 32px;
+    font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.25);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    animation: fadeUp 0.9s ease 1s forwards; opacity: 0;
+  }
+  .back-link:hover { color: var(--terracotta); }
+
+  @media (max-width: 480px) {
+    .page { padding: 40px 24px; }
+    .next-steps { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="arrival-mark">🌿</div>
+
+  <span class="eyebrow">Write Your Own Story</span>
+
+  <h1>You have<br><em>arrived.</em></h1>
+
+  <div class="divider"></div>
+
+  <p class="message">
+    Welcome. <strong>You just made one of the most important decisions of your life.</strong><br><br>
+    Not because of what you paid. But because of what you said yes to.<br><br>
+    You said yes to yourself. Fully. For perhaps the first time.
+  </p>
+
+  <p class="quote">
+    "You are not broken. You never were.<br>
+    You were loyal. And now you are free."
+  </p>
+
+  <div class="next-steps">
+    <span class="next-steps-label">What happens next</span>
+    <div class="next-step">
+      <span class="step-number">1</span>
+      <span>Check your inbox — a welcome email from Zaharina is on its way to you with everything you need to know.</span>
+    </div>
+    <div class="next-step">
+      <span class="step-number">2</span>
+      <span>You will receive the dates, the Zoom link, and a gentle invitation to begin preparing for your first session.</span>
+    </div>
+    <div class="next-step">
+      <span class="step-number">3</span>
+      <span>Between now and your first call — simply notice. Where in your life have you been stopping yourself right before you were about to rise? That awareness is already the beginning.</span>
+    </div>
+  </div>
+
+  <p class="signature">With so much love,<br>Zaharina</p>
+
+  <a href="write-your-own-story.html" class="back-link">← Back to the program</a>
+
+</div>
+</body>
+</html>
