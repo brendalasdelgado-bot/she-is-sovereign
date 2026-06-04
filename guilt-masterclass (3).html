@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hidden Guilt Behind Playing Small — Free Masterclass</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1506689');
+</script>
+<style>
+  :root {
+    --cream: #FAF7F2; --warm-white: #FFFDF9; --sage: #8A9E8C;
+    --sage-light: #C8D8C9; --sage-pale: #EEF3EE;
+    --terracotta: #C17A5A; --terracotta-light: #E8C4B0;
+    --ink: #2C2C2C; --ink-soft: #5A5A5A; --ink-muted: #8A8A8A; --border: #E8E2DA;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes breathe { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 0.85; } }
+  .fade-up   { animation: fadeUp 0.9s ease forwards; }
+  .fade-up-2 { animation: fadeUp 0.9s ease 0.15s forwards; opacity: 0; }
+  .fade-up-3 { animation: fadeUp 0.9s ease 0.3s  forwards; opacity: 0; }
+  .fade-up-4 { animation: fadeUp 0.9s ease 0.45s forwards; opacity: 0; }
+  .fade-up-5 { animation: fadeUp 0.9s ease 0.6s  forwards; opacity: 0; }
+  .fade-up-6 { animation: fadeUp 0.9s ease 0.75s forwards; opacity: 0; }
+  section { position: relative; z-index: 1; }
+  .container       { max-width: 720px;  margin: 0 auto; padding: 0 32px; }
+  .container-wide  { max-width: 960px;  margin: 0 auto; padding: 0 32px; }
+  .container-narrow{ max-width: 580px;  margin: 0 auto; padding: 0 32px; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 100px 0 80px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, var(--sage-light) 0%, transparent 70%); animation: breathe 8s ease-in-out infinite; z-index: 0; }
+  .hero::after  { content: ''; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, var(--terracotta-light) 0%, transparent 70%); opacity: 0.35; animation: breathe 10s ease-in-out infinite reverse; z-index: 0; }
+  .hero .container { position: relative; z-index: 1; }
+  .event-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--sage-pale); border: 1px solid var(--sage-light); color: var(--sage); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 16px; border-radius: 100px; margin-bottom: 36px; font-weight: 500; }
+  .event-tag::before { content: ''; width: 6px; height: 6px; background: var(--terracotta); border-radius: 50%; }
+  .hero-eyebrow { font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2vw, 18px); font-style: italic; color: var(--terracotta); letter-spacing: 0.04em; margin-bottom: 12px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6.5vw, 68px); font-weight: 300; line-height: 1.08; color: var(--ink); margin-bottom: 32px; }
+  h1 em { font-style: italic; color: var(--terracotta); }
+  .hero-promise { font-size: clamp(16px, 2.2vw, 19px); color: var(--ink-soft); max-width: 580px; margin-bottom: 48px; line-height: 1.7; font-weight: 300; }
+  .event-details { display: flex; gap: 28px; margin-bottom: 48px; flex-wrap: wrap; }
+  .detail-item { display: flex; flex-direction: column; gap: 4px; }
+  .detail-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; }
+  .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--ink); font-weight: 400; }
+  .divider-line { width: 1px; height: 36px; background: var(--border); align-self: center; }
+  .btn-primary { display: inline-block; background: var(--terracotta); color: white; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 18px 44px; border-radius: 100px; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; }
+  .btn-primary:hover { background: var(--ink); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+  .free-note { margin-top: 16px; font-size: 12px; color: var(--ink-muted); letter-spacing: 0.04em; }
+
+  /* MIRROR */
+  .mirror { padding: 100px 0; background: var(--warm-white); border-top: 1px solid var(--border); }
+  .mirror-story { font-size: clamp(17px, 2.4vw, 22px); color: var(--ink-soft); line-height: 1.75; margin-bottom: 20px; }
+  .mirror-story strong { color: var(--ink); font-weight: 500; }
+  .mirror-break { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3.5vw, 32px); font-weight: 300; color: var(--ink); line-height: 1.35; margin: 40px 0; padding-left: 24px; border-left: 2px solid var(--terracotta); }
+  .mirror-break em { font-style: italic; color: var(--terracotta); }
+
+  /* REVELATION */
+  .revelation { padding: 100px 0; background: var(--ink); color: var(--cream); position: relative; overflow: hidden; }
+  .revelation::before { content: ''; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(193,122,90,0.15) 0%, transparent 70%); animation: breathe 9s ease-in-out infinite; }
+  .revelation .container { position: relative; z-index: 1; }
+  .section-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); font-weight: 500; margin-bottom: 20px; display: block; }
+  .revelation h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 5vw, 52px); font-weight: 300; line-height: 1.15; color: var(--cream); margin-bottom: 16px; }
+  .revelation h2 em { font-style: italic; color: var(--terracotta-light); }
+  .revelation-intro { font-size: 17px; color: rgba(250,247,242,0.65); max-width: 560px; margin-bottom: 32px; line-height: 1.75; }
+  .old-new { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+  .old-way, .new-way { border-radius: 12px; padding: 28px 28px; }
+  .old-way { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+  .new-way { background: rgba(193,122,90,0.12); border: 1px solid rgba(193,122,90,0.25); }
+  .way-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; margin-bottom: 10px; display: block; }
+  .old-way .way-label { color: rgba(250,247,242,0.35); }
+  .new-way .way-label { color: var(--terracotta-light); }
+  .way-text { font-size: 15px; line-height: 1.7; }
+  .old-way .way-text { color: rgba(250,247,242,0.5); }
+  .new-way .way-text { color: rgba(250,247,242,0.8); }
+  .contracts { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 40px 44px; margin-bottom: 28px; }
+  .contract-line { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2.8vw, 24px); font-style: italic; color: rgba(250,247,242,0.75); line-height: 1.5; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .contract-line:last-child { border-bottom: none; }
+  .loyalty-definition { background: rgba(193,122,90,0.12); border: 1px solid rgba(193,122,90,0.25); border-radius: 12px; padding: 32px 36px; }
+  .loyalty-term { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 3vw, 28px); font-weight: 400; color: var(--terracotta-light); margin-bottom: 12px; }
+  .loyalty-desc { font-size: 15px; color: rgba(250,247,242,0.6); line-height: 1.75; }
+  .loyalty-desc strong { color: rgba(250,247,242,0.9); font-weight: 500; }
+
+  /* STORY — moved up after revelation */
+  .story { padding: 100px 0; border-top: 1px solid var(--border); }
+  .story-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; }
+  .story-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 12px; display: block; }
+  .story h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.5vw, 40px); font-weight: 300; line-height: 1.2; color: var(--ink); margin-bottom: 24px; }
+  .story h2 em { font-style: italic; color: var(--terracotta); }
+  .story-text { font-size: 16px; color: var(--ink-soft); line-height: 1.85; margin-bottom: 20px; }
+  .story-text strong { color: var(--ink); font-weight: 500; }
+
+  /* TESTIMONIAL */
+  .testimonial-block { background: var(--sage-pale); border-left: 3px solid var(--sage); border-radius: 0 12px 12px 0; padding: 28px 32px; margin-top: 32px; }
+  .testimonial-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(17px, 2.2vw, 21px); font-style: italic; color: var(--ink); line-height: 1.6; margin-bottom: 12px; }
+  .testimonial-author { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); font-weight: 500; }
+
+  /* EXPERIENCE */
+  .experience { padding: 100px 0; background: var(--warm-white); border-top: 1px solid var(--border); }
+  .experience h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4.5vw, 48px); font-weight: 300; line-height: 1.2; color: var(--ink); margin-bottom: 16px; }
+  .experience h2 em { font-style: italic; color: var(--terracotta); }
+  .experience-intro { font-size: 16px; color: var(--ink-soft); max-width: 520px; margin-bottom: 56px; line-height: 1.75; }
+  .experience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .experience-item { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .experience-item:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
+  .exp-number { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: var(--terracotta); opacity: 0.3; line-height: 1; margin-bottom: 14px; }
+  .exp-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--ink); margin-bottom: 6px; }
+  .exp-value { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; margin-bottom: 10px; }
+  .exp-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.75; }
+
+  /* THROUGH LINE */
+  .through-line { padding: 80px 0; background: var(--sage-pale); border-top: 1px solid var(--sage-light); border-bottom: 1px solid var(--sage-light); text-align: center; }
+  .through-line-inner { max-width: 600px; margin: 0 auto; padding: 0 32px; }
+  .through-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); font-weight: 500; margin-bottom: 24px; display: block; }
+  .through-line h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 4vw, 38px); font-weight: 300; line-height: 1.35; color: var(--ink); margin-bottom: 20px; }
+  .through-line h2 em { font-style: italic; color: var(--terracotta); }
+  .through-line p { font-size: 16px; color: var(--ink-soft); line-height: 1.75; }
+
+  /* FOR WHO */
+  .for-who { padding: 100px 0; }
+  .for-who h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 300; line-height: 1.2; color: var(--ink); margin-bottom: 48px; }
+  .for-who h2 em { font-style: italic; color: var(--terracotta); }
+  .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .who-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .who-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.05); }
+  .who-card p { font-size: 15px; color: var(--ink-soft); line-height: 1.75; }
+
+  /* FAQ */
+  .faq { padding: 100px 0; background: var(--warm-white); border-top: 1px solid var(--border); }
+  .faq h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 300; line-height: 1.2; color: var(--ink); margin-bottom: 48px; }
+  .faq h2 em { font-style: italic; color: var(--terracotta); }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 28px 0; }
+  .faq-item:first-of-type { border-top: 1px solid var(--border); }
+  .faq-q { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2.5vw, 22px); font-weight: 400; color: var(--ink); margin-bottom: 12px; }
+  .faq-a { font-size: 15px; color: var(--ink-soft); line-height: 1.8; }
+  .faq-a strong { color: var(--ink); font-weight: 500; }
+
+  /* BINARY CHOICE */
+  .binary { padding: 80px 0; background: var(--ink); }
+  .binary h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 42px); font-weight: 300; line-height: 1.2; color: var(--cream); margin-bottom: 40px; text-align: center; }
+  .binary h2 em { font-style: italic; color: var(--terracotta-light); }
+  .binary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 720px; margin: 0 auto; }
+  .binary-stay { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 36px 32px; }
+  .binary-choose { background: rgba(193,122,90,0.15); border: 1px solid rgba(193,122,90,0.3); border-radius: 16px; padding: 36px 32px; }
+  .binary-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; margin-bottom: 16px; display: block; }
+  .binary-stay .binary-label { color: rgba(250,247,242,0.3); }
+  .binary-choose .binary-label { color: var(--terracotta-light); }
+  .binary-item { font-size: 14px; line-height: 1.75; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; gap: 10px; }
+  .binary-item:last-child { border-bottom: none; }
+  .binary-stay .binary-item { color: rgba(250,247,242,0.45); }
+  .binary-choose .binary-item { color: rgba(250,247,242,0.8); }
+  .binary-icon { flex-shrink: 0; margin-top: 2px; }
+
+  /* TRANSFORMATION */
+  .transformation { padding: 80px 0; border-top: 1px solid var(--border); text-align: center; }
+  .transformation-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 3vw, 30px); font-weight: 300; font-style: italic; color: var(--ink); line-height: 1.5; max-width: 640px; margin: 0 auto; }
+  .transformation-quote em { color: var(--terracotta); }
+
+  /* FINAL CTA */
+  .final-cta { padding: 120px 0; text-align: center; background: var(--cream); border-top: 1px solid var(--border); position: relative; overflow: hidden; }
+  .final-cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 700px; background: radial-gradient(circle, var(--terracotta-light) 0%, transparent 65%); opacity: 0.2; animation: breathe 8s ease-in-out infinite; }
+  .final-cta .container { position: relative; z-index: 1; }
+  .final-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 5.5vw, 58px); font-weight: 300; line-height: 1.15; color: var(--ink); margin-bottom: 24px; }
+  .final-cta h2 em { font-style: italic; color: var(--terracotta); }
+  .final-cta p { font-size: 17px; color: var(--ink-soft); max-width: 460px; margin: 0 auto 48px; line-height: 1.75; }
+  .final-cta .hero-eyebrow { color: var(--terracotta); margin-bottom: 16px; }
+
+  /* FOOTER */
+  footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--border); }
+  footer p { font-size: 12px; color: var(--ink-muted); }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.85s ease, transform 0.85s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 680px) {
+    .story-inner, .binary-grid, .old-new { grid-template-columns: 1fr; gap: 24px; }
+    .event-details { gap: 20px; }
+    .divider-line { display: none; }
+    .contracts { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="container">
+    <div class="event-tag fade-up">Free Masterclass · June 23 · 9am Madrid Time</div>
+    <p class="hero-eyebrow fade-up-2">You're Not Broken. You're Loyal.</p>
+    <h1 class="fade-up-3">The Hidden Guilt<br>Behind <em>Playing Small</em></h1>
+    <p class="hero-promise fade-up-4">Walk in feeling like something invisible keeps pulling you back every time you're about to rise. Walk out understanding the hidden loyalty pattern behind your self-sabotage — and begin releasing the guilt that says success would cost you love.</p>
+    <div class="event-details fade-up-5">
+      <div class="detail-item"><span class="detail-label">Date</span><span class="detail-value">Monday, June 23</span></div>
+      <div class="divider-line"></div>
+      <div class="detail-item"><span class="detail-label">Time</span><span class="detail-value">9:00am Madrid</span></div>
+      <div class="divider-line"></div>
+      <div class="detail-item"><span class="detail-label">Format</span><span class="detail-value">Live on Zoom</span></div>
+      <div class="divider-line"></div>
+      <div class="detail-item"><span class="detail-label">Investment</span><span class="detail-value">Free</span></div>
+    </div>
+    <div class="fade-up-6">
+      <a href="#register" class="btn-primary">Save My Free Seat</a>
+      <p class="free-note">100% free · Limited spaces · Zoom link sent on registration</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MIRROR ══ -->
+<section class="mirror">
+  <div class="container">
+    <p class="mirror-story reveal">You do the work. You show up. You heal. You journal. You make the plans. You get close to the breakthrough…</p>
+    <p class="mirror-story reveal"><strong>And then something happens.</strong></p>
+    <p class="mirror-story reveal">You get distracted. You doubt yourself. You lose momentum. You shrink right before being seen.</p>
+    <div class="mirror-break reveal">
+      And the hardest part? Deep down, success doesn't only feel exciting.<br>
+      It also feels like it could cost you <em>belonging.</em>
+    </div>
+    <p class="mirror-story reveal">You have done the healing work. You have done the mindset work. You know you are meant for more. And still, something invisible pulls you back.</p>
+    <p class="mirror-story reveal">Maybe you feel guilt when things go well. Maybe you stop right before the breakthrough. Maybe part of you fears that becoming fully successful would separate you from the people you love most.</p>
+    <p class="mirror-story reveal" style="margin-top: 32px; font-size: clamp(17px, 2.4vw, 21px); color: var(--ink); font-weight: 400;">If that is you — this masterclass will help you finally name the wall you have been trying to push through.</p>
+  </div>
+</section>
+
+<!-- ══ REVELATION ══ -->
+<section class="revelation">
+  <div class="container">
+    <span class="section-label reveal">The hidden pattern</span>
+    <h2 class="reveal">The hidden reason success<br>may feel <em>unsafe</em></h2>
+    <p class="revelation-intro reveal">You have tried to think your way out of this — with mindset work, journaling, strategy. But you cannot logic away a pattern that is living in your nervous system.</p>
+
+    <div class="old-new reveal">
+      <div class="old-way">
+        <span class="way-label">❌ The old way</span>
+        <p class="way-text">Fighting your own willpower. Trying to push through resistance. Wondering why you keep stopping yourself despite doing all the work.</p>
+      </div>
+      <div class="new-way">
+        <span class="way-label">✓ The new way</span>
+        <p class="way-text">Updating the unconscious contract so success feels safe. Working with the nervous system, not against it. Releasing the loyalty vow at the root.</p>
+      </div>
+    </div>
+
+    <div class="contracts reveal">
+      <div class="contract-line">"If I rise too far, I might lose love."</div>
+      <div class="contract-line">"If I become more successful than my family, I might no longer belong."</div>
+      <div class="contract-line">"If I choose myself fully, I might hurt someone."</div>
+      <div class="contract-line">"If I shine too brightly, I might be abandoned."</div>
+    </div>
+
+    <div class="loyalty-definition reveal">
+      <div class="loyalty-term">This is what I call lineage loyalty.</div>
+      <p class="loyalty-desc">The unconscious way we stay small to stay connected. The silent vow made — often in childhood, often without words — that <strong>belonging requires shrinking.</strong><br><br>You are not broken. You are loyal. And now it is time to choose yourself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ORIGIN STORY (moved up) ══ -->
+<section class="story">
+  <div class="container-wide">
+    <div class="story-inner">
+      <img src="zaharina.jpg" alt="Zaharina" class="story-photo reveal">
+      <div>
+        <span class="section-label reveal">Your guide</span>
+        <h2 class="reveal">I lived this pattern<br><em>for 30 years.</em></h2>
+        <p class="story-text reveal">Back in my 20s in Martinique, I had to make a decision that put me in conflict with my sister and my mother. In that moment I told myself I was a bad daughter, a bad sister. I felt I did not deserve anything.</p>
+        <p class="story-text reveal">That belief cost me everything — my confidence, my power, my money. And I didn't even know why. Because the real reason was buried so deep I couldn't see it. <strong>I had unconsciously decided it was better to be poor and connected than successful and separated from the people I loved most.</strong></p>
+        <p class="story-text reveal">It was only when I started to truly love myself that everything changed. I realised I had been punishing myself for 30 years for not being good enough. And I made a decision — this time I would become successful in a way that lifts everyone I love.</p>
+        <div class="testimonial-block reveal">
+          <p class="testimonial-text">"She helped me face it and held me throughout the process steadily and with certainty. Her strength and trust are such a huge part of the process, and she uses it to help you reconnect with yours. She knows she delivers and will get you the transformation that is needed at the time."</p>
+          <span class="testimonial-author">— Ophélie</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT YOU WILL EXPERIENCE ══ -->
+<section class="experience">
+  <div class="container-wide">
+    <span class="section-label reveal">What you will experience</span>
+    <h2 class="reveal">This is not a lecture.<br>This is a live <em>journey.</em></h2>
+    <p class="experience-intro reveal">A 90-minute live somatic journey to name your Invisible Contract and finally claim the success you have been working for — without the fear of losing your family.</p>
+    <div class="experience-grid">
+      <div class="experience-item reveal">
+        <div class="exp-number">01</div>
+        <div class="exp-title">Name the Invisible Contract</div>
+        <div class="exp-value">The Lineage Loyalty Reveal</div>
+        <p class="exp-desc">You will finally have a name for the invisible wall. The moment you understand what has been running your life, everything shifts.</p>
+      </div>
+      <div class="experience-item reveal">
+        <div class="exp-number">02</div>
+        <div class="exp-title">The Sovereign Somatic Reset</div>
+        <div class="exp-value">3-Step Body Process · Value €97 — Yours Free</div>
+        <p class="exp-desc">Step 1: Locate the Vow in your body. Step 2: Update your nervous system. Step 3: Recode permission for wealth and visibility. We don't just talk about guilt — we release it.</p>
+      </div>
+      <div class="experience-item reveal">
+        <div class="exp-number">03</div>
+        <div class="exp-title">The Inner Child Permission Tool</div>
+        <div class="exp-value">Guided Meditation · Value €47 — Yours Free</div>
+        <p class="exp-desc">A guided meditation to bring unconditional love to the part of you who made the loyalty vow — and gently give her permission to let it go.</p>
+      </div>
+      <div class="experience-item reveal">
+        <div class="exp-number">04</div>
+        <div class="exp-title">Begin Writing Your Own Story</div>
+        <div class="exp-value">Your First Step Into the New Chapter</div>
+        <p class="exp-desc">You leave not just understanding the pattern — but feeling something release. With permission in your body, not just your mind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THROUGH LINE ══ -->
+<section class="through-line">
+  <div class="through-line-inner">
+    <span class="through-label reveal">The journey ahead</span>
+    <h2 class="reveal">This masterclass is the first step into <em>writing your own story</em></h2>
+    <p class="reveal">One where success no longer means separation, guilt, or betrayal. One where you are the first woman in your lineage to choose herself — fully, freely, without apology.</p>
+  </div>
+</section>
+
+<!-- ══ FOR WHO ══ -->
+<section class="for-who">
+  <div class="container-wide">
+    <h2 class="reveal">This is for you <em>if —</em></h2>
+    <div class="who-grid">
+      <div class="who-card reveal"><p>You are a woman who knows she is meant for more — and has been working hard toward it — but success still feels just out of reach.</p></div>
+      <div class="who-card reveal"><p>You love your family deeply, and somewhere inside you feel that becoming very successful might create distance between you.</p></div>
+      <div class="who-card reveal"><p>You have done the healing work, the mindset work, the strategy work — and yet something invisible keeps pulling you back.</p></div>
+      <div class="who-card reveal"><p>You are ready to stop running and finally arrive — not just in your business, but in your whole life.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq">
+  <div class="container">
+    <h2 class="reveal">Your questions, <em>answered</em></h2>
+    <div class="faq-item reveal">
+      <p class="faq-q">"I've done so much healing work already. Why will this be different?"</p>
+      <p class="faq-a">Most healing work focuses on the individual. This masterclass addresses something deeper — <strong>systemic loyalty</strong>, the invisible strings connecting you to your lineage. If you have hit a plateau despite doing the work, it is likely because the work was not looking at the right contract. This is the missing piece.</p>
+    </div>
+    <div class="faq-item reveal">
+      <p class="faq-q">"I've done somatic work before. How is this different?"</p>
+      <p class="faq-a">Most somatic work addresses personal trauma. The Sovereign Somatic Reset specifically targets the <strong>lineage loyalty vow</strong> — the place in your nervous system where staying small feels like love. This is a precision tool, not a general practice.</p>
+    </div>
+    <div class="faq-item reveal">
+      <p class="faq-q">"What if I can't make it live?"</p>
+      <p class="faq-a">Register anyway. Everyone who signs up will receive a recording. However, the live experience is where the real transformation happens — being witnessed in real time by other women going through the same release is part of the medicine.</p>
+    </div>
+    <div class="faq-item reveal">
+      <p class="faq-q">"Is this only for women in business?"</p>
+      <p class="faq-a">No. This pattern shows up anywhere you are holding yourself back — in your relationships, your creative work, your visibility, your finances. If you feel you are not fully choosing yourself, this is for you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BINARY CHOICE ══ -->
+<section class="binary">
+  <div class="container">
+    <h2 class="reveal">Two paths. <em>One choice.</em></h2>
+    <div class="binary-grid reveal">
+      <div class="binary-stay">
+        <span class="binary-label">Stay in the loyalty vow</span>
+        <div class="binary-item"><span class="binary-icon">↓</span><span>Keep running toward something you never quite reach</span></div>
+        <div class="binary-item"><span class="binary-icon">↓</span><span>Stop yourself right before every breakthrough</span></div>
+        <div class="binary-item"><span class="binary-icon">↓</span><span>Carry guilt for choosing yourself</span></div>
+        <div class="binary-item"><span class="binary-icon">↓</span><span>Watch the slow death of your biggest dreams</span></div>
+        <div class="binary-item"><span class="binary-icon">↓</span><span>Protect others from your light</span></div>
+      </div>
+      <div class="binary-choose">
+        <span class="binary-label">Write your own story</span>
+        <div class="binary-item"><span class="binary-icon">→</span><span>Name the pattern and finally understand why</span></div>
+        <div class="binary-item"><span class="binary-icon">→</span><span>Release the vow from your body, not just your mind</span></div>
+        <div class="binary-item"><span class="binary-icon">→</span><span>Choose success without guilt or betrayal</span></div>
+        <div class="binary-item"><span class="binary-icon">→</span><span>Become the first woman in your lineage to fully arrive</span></div>
+        <div class="binary-item"><span class="binary-icon">→</span><span>Give your family your light — not your sacrifice</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRANSFORMATION ══ -->
+<section class="transformation">
+  <div class="container-narrow">
+    <p class="transformation-quote reveal">She walks in wondering why she keeps stopping herself right before the breakthrough. She walks out with a name for the pattern, a felt sense of release in her body, and <em>permission to choose success without guilt.</em></p>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="final-cta" id="register">
+  <div class="container">
+    <p class="hero-eyebrow reveal">You're Not Broken. You're Loyal.</p>
+    <h2 class="reveal">And now it is time to<br><em>write your own story.</em></h2>
+    <p class="reveal">Join me live on June 23 and take the first real step toward the life you know you are meant to live.</p>
+    <div class="reveal">
+      <div class="ml-embedded" data-form="3Dufus"></div>
+    </div>
+    <p class="free-note reveal">Free to attend · Zoom link sent on registration · Monday June 23 · 9am Madrid Time</p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container"><p>© 2025 Zaharina · With love 🌿</p></div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+</script>
+</body>
+</html>
