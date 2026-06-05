@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Write Your Own Story — 4-Week Group Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1506689');
+</script>
+<style>
+  :root {
+    --midnight: #0F1A1C;
+    --forest: #162320;
+    --forest-mid: #1E2E2A;
+    --forest-light: #243830;
+    --cream: #FAF7F2;
+    --cream-soft: #F0EBE3;
+    --terracotta: #C17A5A;
+    --terracotta-light: #E8C4B0;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --sage: #8A9E8C;
+    --sage-light: #C8D8C9;
+    --border-dark: rgba(255,255,255,0.07);
+    --border-light: #E8E2DA;
+    --ink: #2C2C2C;
+    --ink-soft: #5A5A5A;
+    --ink-muted: #8A8A8A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--midnight); color: var(--cream); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes breathe { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.06); } }
+  @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+
+  .fade-up   { animation: fadeUp 1s ease forwards; }
+  .fade-up-2 { animation: fadeUp 1s ease 0.2s forwards; opacity: 0; }
+  .fade-up-3 { animation: fadeUp 1s ease 0.4s forwards; opacity: 0; }
+  .fade-up-4 { animation: fadeUp 1s ease 0.6s forwards; opacity: 0; }
+  .fade-up-5 { animation: fadeUp 1s ease 0.8s forwards; opacity: 0; }
+  .fade-up-6 { animation: fadeUp 1s ease 1.0s forwards; opacity: 0; }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  section { position: relative; z-index: 1; }
+  .container        { max-width: 720px;  margin: 0 auto; padding: 0 32px; }
+  .container-wide   { max-width: 980px;  margin: 0 auto; padding: 0 32px; }
+  .container-narrow { max-width: 560px;  margin: 0 auto; padding: 0 32px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 100px 0 80px;
+    position: relative; overflow: hidden;
+    background: var(--midnight);
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 20%, rgba(193,122,90,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 10% 80%, rgba(138,158,140,0.1) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(201,169,110,0.05) 0%, transparent 50%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
+  }
+  .hero .container { position: relative; z-index: 1; }
+
+  .program-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid rgba(201,169,110,0.3);
+    background: rgba(201,169,110,0.06);
+    color: var(--gold);
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 9px 18px; border-radius: 100px;
+    margin-bottom: 40px; font-weight: 500;
+  }
+  .program-tag::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(15px, 2vw, 18px);
+    font-style: italic; color: var(--terracotta);
+    letter-spacing: 0.04em; margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 7vw, 80px);
+    font-weight: 300; line-height: 1.05; color: var(--cream);
+    margin-bottom: 8px;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+  h1 span { display: block; }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 300; font-style: italic;
+    color: rgba(250,247,242,0.5);
+    margin-bottom: 32px; line-height: 1.4;
+  }
+
+  .hero-promise {
+    font-size: clamp(15px, 2vw, 17px);
+    color: rgba(250,247,242,0.6);
+    max-width: 540px; margin-bottom: 48px;
+    line-height: 1.75; font-weight: 300;
+  }
+
+  .hero-details {
+    display: flex; gap: 32px; margin-bottom: 48px; flex-wrap: wrap;
+    padding: 28px 32px;
+    border: 1px solid var(--border-dark);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    max-width: 580px;
+  }
+  .detail-item { display: flex; flex-direction: column; gap: 5px; }
+  .detail-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 500; opacity: 0.7; }
+  .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--cream); font-weight: 400; }
+  .divider-v { width: 1px; background: var(--border-dark); align-self: stretch; }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--terracotta); color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 20px 48px; border-radius: 100px;
+    text-decoration: none; transition: all 0.35s ease;
+    border: none; cursor: pointer;
+    box-shadow: 0 0 40px rgba(193,122,90,0.25);
+  }
+  .btn-primary:hover {
+    background: var(--gold); color: var(--midnight);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(201,169,110,0.3);
+  }
+  .price-note { margin-top: 16px; font-size: 13px; color: rgba(250,247,242,0.35); }
+
+  /* ── CONTINUATION ── */
+  .continuation {
+    padding: 80px 0;
+    background: var(--forest);
+    border-top: 1px solid var(--border-dark);
+    text-align: center;
+  }
+  .continuation-inner { max-width: 640px; margin: 0 auto; padding: 0 32px; }
+  .continuation p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 300; font-style: italic;
+    color: rgba(250,247,242,0.7);
+    line-height: 1.5; margin-bottom: 20px;
+  }
+  .continuation p strong { color: var(--gold); font-style: normal; font-weight: 400; }
+
+  /* ── FOR WHO ── */
+  .for-who {
+    padding: 100px 0;
+    background: var(--midnight);
+    border-top: 1px solid var(--border-dark);
+  }
+  .section-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); font-weight: 500; margin-bottom: 20px; display: block; }
+  .for-who h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 300; line-height: 1.2;
+    color: var(--cream); margin-bottom: 48px;
+  }
+  .for-who h2 em { font-style: italic; color: var(--gold); }
+  .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .who-card {
+    border: 1px solid var(--border-dark);
+    border-radius: 14px; padding: 32px 28px;
+    background: rgba(255,255,255,0.03);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .who-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(201,169,110,0.2); }
+  .who-card p { font-size: 15px; color: rgba(250,247,242,0.6); line-height: 1.75; }
+
+  /* ── JOURNEY ── */
+  .journey {
+    padding: 100px 0;
+    background: var(--forest);
+    border-top: 1px solid var(--border-dark);
+  }
+  .journey h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4.5vw, 50px);
+    font-weight: 300; line-height: 1.15;
+    color: var(--cream); margin-bottom: 16px;
+  }
+  .journey h2 em { font-style: italic; color: var(--gold); }
+  .journey-intro { font-size: 16px; color: rgba(250,247,242,0.55); max-width: 520px; margin-bottom: 64px; line-height: 1.75; }
+
+  .weeks { display: flex; flex-direction: column; gap: 2px; }
+  .week {
+    display: grid; grid-template-columns: 80px 1fr;
+    border-radius: 14px; overflow: hidden;
+    transition: transform 0.25s ease;
+  }
+  .week:hover { transform: translateX(6px); }
+  .week-number {
+    background: rgba(201,169,110,0.08);
+    border: 1px solid rgba(201,169,110,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 300;
+    color: var(--gold); opacity: 0.6;
+  }
+  .week-content {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-dark);
+    border-left: none;
+    padding: 32px 36px;
+  }
+  .week-theme {
+    font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--terracotta);
+    font-weight: 500; margin-bottom: 8px;
+  }
+  .week-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 400; color: var(--cream);
+    margin-bottom: 10px;
+  }
+  .week-desc { font-size: 14px; color: rgba(250,247,242,0.5); line-height: 1.75; }
+
+  /* ── WHAT'S INCLUDED ── */
+  .included {
+    padding: 100px 0;
+    background: var(--midnight);
+    border-top: 1px solid var(--border-dark);
+  }
+  .included h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 300; line-height: 1.2;
+    color: var(--cream); margin-bottom: 48px;
+  }
+  .included h2 em { font-style: italic; color: var(--gold); }
+  .included-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .included-item {
+    border: 1px solid var(--border-dark);
+    border-radius: 14px; padding: 32px 28px;
+    background: rgba(255,255,255,0.03);
+    position: relative; overflow: hidden;
+  }
+  .included-item::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold));
+    opacity: 0.5;
+  }
+  .included-icon { font-size: 24px; margin-bottom: 16px; }
+  .included-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--cream); margin-bottom: 8px; }
+  .included-desc { font-size: 14px; color: rgba(250,247,242,0.5); line-height: 1.7; }
+
+  /* ── TESTIMONIAL ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 980px; margin: 0 auto;
+  }
+  .testimonial-section {
+    padding: 100px 0;
+    background: var(--forest);
+    border-top: 1px solid var(--border-dark);
+  }
+  .testimonial-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 20px;
+    padding: 48px 48px;
+    max-width: 680px; margin: 0 auto;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '\201C';
+    position: absolute; top: -20px; left: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px; color: var(--gold);
+    opacity: 0.15; line-height: 1;
+  }
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-style: italic; font-weight: 300;
+    color: rgba(250,247,242,0.85);
+    line-height: 1.6; margin-bottom: 24px;
+    position: relative; z-index: 1;
+  }
+  .testimonial-author { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 500; opacity: 0.7; }
+
+  /* ── ABOUT ── */
+  .about {
+    padding: 100px 0;
+    background: var(--midnight);
+    border-top: 1px solid var(--border-dark);
+  }
+  .about-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; }
+  .about-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 12px; display: block; filter: brightness(0.9) contrast(1.05); }
+  .about h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.5vw, 40px); font-weight: 300; line-height: 1.2; color: var(--cream); margin-bottom: 24px; }
+  .about h2 em { font-style: italic; color: var(--gold); }
+  .about-text { font-size: 15px; color: rgba(250,247,242,0.6); line-height: 1.85; margin-bottom: 18px; }
+  .about-text strong { color: rgba(250,247,242,0.9); font-weight: 500; }
+  .credentials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .credential { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); border: 1px solid rgba(138,158,140,0.25); padding: 7px 14px; border-radius: 100px; font-weight: 500; }
+
+  /* ── INVESTMENT ── */
+  .investment {
+    padding: 100px 0;
+    background: var(--forest);
+    border-top: 1px solid var(--border-dark);
+    text-align: center;
+  }
+  .investment h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 46px); font-weight: 300; line-height: 1.2; color: var(--cream); margin-bottom: 48px; }
+  .investment h2 em { font-style: italic; color: var(--gold); }
+  .price-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 24px; padding: 56px 48px;
+    max-width: 520px; margin: 0 auto 48px;
+    position: relative; overflow: hidden;
+  }
+  .price-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,169,110,0.08) 0%, transparent 60%);
+  }
+  .price-card > * { position: relative; z-index: 1; }
+  .price-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; opacity: 0.7; }
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 8vw, 88px);
+    font-weight: 300; color: var(--cream);
+    line-height: 1; margin-bottom: 8px;
+  }
+  .price-amount span { font-size: 0.4em; vertical-align: top; margin-top: 18px; display: inline-block; color: var(--gold); }
+  .price-period { font-size: 14px; color: rgba(250,247,242,0.4); margin-bottom: 36px; }
+  .price-includes { text-align: left; }
+  .price-include-item { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: rgba(250,247,242,0.6); line-height: 1.5; }
+  .price-include-item:last-child { border-bottom: none; }
+  .price-include-item::before { content: '→'; color: var(--terracotta); flex-shrink: 0; margin-top: 1px; }
+
+  /* ── FAQ ── */
+  .faq {
+    padding: 100px 0;
+    background: var(--midnight);
+    border-top: 1px solid var(--border-dark);
+  }
+  .faq h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 300; line-height: 1.2; color: var(--cream); margin-bottom: 48px; }
+  .faq h2 em { font-style: italic; color: var(--gold); }
+  .faq-item { border-bottom: 1px solid var(--border-dark); padding: 28px 0; }
+  .faq-item:first-of-type { border-top: 1px solid var(--border-dark); }
+  .faq-q { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2.5vw, 22px); font-weight: 400; color: var(--cream); margin-bottom: 12px; }
+  .faq-a { font-size: 15px; color: rgba(250,247,242,0.55); line-height: 1.8; }
+  .faq-a strong { color: rgba(250,247,242,0.85); font-weight: 500; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    padding: 120px 0; text-align: center;
+    background: var(--forest-mid);
+    border-top: 1px solid var(--border-dark);
+    position: relative; overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(193,122,90,0.1) 0%, transparent 60%);
+    animation: breathe 9s ease-in-out infinite;
+  }
+  .final-cta .container { position: relative; z-index: 1; }
+  .final-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 5.5vw, 60px); font-weight: 300; line-height: 1.12; color: var(--cream); margin-bottom: 24px; }
+  .final-cta h2 em { font-style: italic; color: var(--gold); }
+  .final-cta p { font-size: 17px; color: rgba(250,247,242,0.5); max-width: 460px; margin: 0 auto 48px; line-height: 1.75; }
+
+  /* ── CREDIBILITY ── */
+  .credibility { padding: 48px 0; background: var(--forest-mid); border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
+  .stats-bar { display: flex; justify-content: center; align-items: center; gap: 0; flex-wrap: wrap; margin-bottom: 36px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-dark); border-radius: 16px; padding: 32px 40px; }
+  .stat-item { text-align: center; padding: 0 36px; }
+  .stat-number { font-family: "Cormorant Garamond", serif; font-size: clamp(32px, 5vw, 52px); font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,247,242,0.4); font-weight: 500; }
+  .stat-divider { width: 1px; height: 48px; background: var(--border-dark); }
+  .micro-testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .micro-t { font-family: "Cormorant Garamond", serif; font-size: 16px; font-style: italic; color: rgba(250,247,242,0.55); line-height: 1.6; text-align: center; padding: 20px 24px; border: 1px solid var(--border-dark); border-radius: 12px; background: rgba(255,255,255,0.02); }
+  .micro-t span { display: block; font-style: normal; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); margin-top: 10px; font-family: "DM Sans", sans-serif; }
+
+  /* ── BEFORE AFTER ── */
+  .before-after { padding: 100px 0; background: var(--midnight); border-top: 1px solid var(--border-dark); }
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .ba-card { border-radius: 16px; padding: 40px 36px; }
+  .ba-before { background: rgba(255,255,255,0.03); border: 1px solid var(--border-dark); }
+  .ba-after { background: rgba(193,122,90,0.08); border: 1px solid rgba(193,122,90,0.2); }
+  .ba-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; margin-bottom: 24px; display: block; }
+  .ba-before .ba-label { color: rgba(250,247,242,0.25); }
+  .ba-after .ba-label { color: var(--terracotta); }
+  .ba-item { font-size: 15px; line-height: 1.7; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 12px; align-items: flex-start; }
+  .ba-item:last-child { border-bottom: none; }
+  .ba-before .ba-item { color: rgba(250,247,242,0.45); }
+  .ba-before .ba-item::before { content: "✗"; color: rgba(250,247,242,0.2); flex-shrink: 0; }
+  .ba-after .ba-item { color: rgba(250,247,242,0.75); }
+  .ba-after .ba-item::before { content: "→"; color: var(--terracotta); flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--border-dark); background: var(--midnight); }
+  footer p { font-size: 12px; color: rgba(250,247,242,0.25); }
+
+  @media (max-width: 680px) {
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-details { gap: 20px; padding: 20px; }
+    .divider-v { display: none; }
+    .week { grid-template-columns: 50px 1fr; }
+    .week-number { font-size: 24px; }
+    .price-card { padding: 36px 28px; }
+    .testimonial-card { padding: 36px 28px; }
+    .ba-grid { grid-template-columns: 1fr; }
+    .stats-bar { padding: 24px 20px; }
+    .stat-item { padding: 0 16px; }
+  }
+</style>
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="program-tag fade-up">4-Week Group Program · Online · Starts Soon</div>
+    <p class="hero-eyebrow fade-up-2">The next step in your journey</p>
+    <h1 class="fade-up-3">
+      <span>Write Your</span>
+      <span><em>Own Story</em></span>
+    </h1>
+    <p class="hero-tagline fade-up-4">A 4-week live group journey to release lineage loyalty and claim the success you were born for — without guilt, without betrayal, without sacrifice.</p>
+
+    <div class="hero-details fade-up-5">
+      <div class="detail-item"><span class="detail-label">Duration</span><span class="detail-value">4 Weeks</span></div>
+      <div class="divider-v"></div>
+      <div class="detail-item"><span class="detail-label">Live Calls</span><span class="detail-value">4 Group Calls</span></div>
+      <div class="divider-v"></div>
+      <div class="detail-item"><span class="detail-label">Format</span><span class="detail-value">Online · Zoom</span></div>
+      <div class="divider-v"></div>
+      <div class="detail-item"><span class="detail-label">Investment</span><span class="detail-value">€777</span></div>
+    </div>
+
+    <div class="fade-up-6">
+      <a href="#enroll" class="btn-primary">I Am Ready — Claim My Place</a>
+      <p class="price-note">Limited places · Small intimate group · Application may be required</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CREDIBILITY BAR ══ -->
+<section class="credibility">
+  <div class="container-wide">
+    <div class="stats-bar reveal">
+      <div class="stat-item"><div class="stat-number">20+</div><div class="stat-label">Women Transformed</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-number">18</div><div class="stat-label">Years Combined Experience</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-number">4</div><div class="stat-label">Countries</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Reported a Shift in First Session</div></div>
+    </div>
+    <div class="micro-testimonials reveal">
+      <div class="micro-t">"She took me further in one session than I expected to go." <span>— Dita</span></div>
+      <div class="micro-t">"Inner peace. Relief. I felt myself holding myself again." <span>— Merel</span></div>
+      <div class="micro-t">"She will get you the transformation you need." <span>— Ophélie</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTINUATION ══ -->
+<section class="continuation">
+  <div class="continuation-inner">
+    <p class="reveal">In the masterclass, you discovered the pattern. You named the invisible contract. You felt something begin to <strong>release.</strong></p>
+    <p class="reveal">This is where you go all the way.</p>
+    <p class="reveal" style="font-size: clamp(15px,2vw,18px); font-family: 'DM Sans', sans-serif; font-style: normal; color: rgba(250,247,242,0.45); margin-top: 8px;">Write Your Own Story is where the understanding becomes embodied. Where the release becomes permanent. Where the new woman — the one who is fully allowed — gets to take her first real steps.</p>
+  </div>
+</section>
+
+<!-- ══ BEFORE & AFTER ══ -->
+<section class="before-after">
+  <div class="container-wide">
+    <span class="section-label reveal" style="text-align:center;display:block;">The transformation</span>
+    <h2 class="reveal" style="font-family:Cormorant Garamond,serif;font-size:clamp(28px,4vw,46px);font-weight:300;color:var(--cream);text-align:center;margin-bottom:48px;">Her life <em style="font-style:italic;color:var(--gold)">before.</em> Her life <em style="font-style:italic;color:var(--terracotta)">after.</em></h2>
+    <div class="ba-grid">
+      <div class="ba-card ba-before reveal">
+        <div class="ba-label">Her life before</div>
+        <div class="ba-item">She constantly adjusts her true self to fit the family standard — shrinking her desires, softening her ambitions, making herself smaller so she still belongs.</div>
+        <div class="ba-item">When she dares to want more, a quiet guilt creeps in. As if wanting what her ancestors never had is a rejection of where she comes from.</div>
+        <div class="ba-item">She oscillates between two modes — either dimming herself to keep the peace, or rebelling and then feeling bad about it.</div>
+        <div class="ba-item">There is a constant undercurrent of feeling different. Wrong. Like she is too much for her family and not enough for the life she truly desires.</div>
+        <div class="ba-item">She carries a guilt she cannot name — and it quietly runs everything. Her business, her relationships, her sense of what she is allowed to have.</div>
+      </div>
+      <div class="ba-card ba-after reveal">
+        <div class="ba-label">Her life after</div>
+        <div class="ba-item">She wakes up relieved. Lighter. She finally knows it was never her fault — something invisible was holding her back and now she can see it, name it, and release it.</div>
+        <div class="ba-item">Her creativity returns. Ideas flow freely. She feels alive in a way she had forgotten was possible.</div>
+        <div class="ba-item">She is no longer afraid to go for what she really wants — the career she has always known she was meant for, the relationships she has dreamed about, the life that is truly hers.</div>
+        <div class="ba-item">She stops adjusting herself to fit in. She belongs to herself first — and paradoxically, her relationships deepen because she is finally showing up as her true self.</div>
+        <div class="ba-item">She is free. Not just in her business — but in her whole life. And she is just getting started.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOR WHO ══ -->
+<section class="for-who">
+  <div class="container-wide">
+    <span class="section-label reveal">This program is for you</span>
+    <h2 class="reveal">She experienced the masterclass.<br>And she knows she is <em>not done.</em></h2>
+    <div class="who-grid">
+      <div class="who-card reveal"><p>You felt something shift in the masterclass and you want to go deeper — into the body, into the lineage, into the full release.</p></div>
+      <div class="who-card reveal"><p>You are ready to do more than understand the pattern. You are ready to feel it leave your body and stop running your life.</p></div>
+      <div class="who-card reveal"><p>You want to be witnessed by other women going through the same journey — the power of community is part of the medicine.</p></div>
+      <div class="who-card reveal"><p>You are ready to become the first woman in your lineage to fully choose herself — and write a new story for all the women who come after you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE JOURNEY ══ -->
+<section class="journey">
+  <div class="container">
+    <span class="section-label reveal">The 4-week journey</span>
+    <h2 class="reveal">Four weeks.<br>Four <em>transformations.</em></h2>
+    <p class="journey-intro reveal">Each week builds on the last — from seeing the pattern clearly, to releasing it from the body, to stepping into a new identity, to living it fully. One live call per week. Deep, intimate, transformative.</p>
+
+    <div class="weeks">
+      <div class="week reveal">
+        <div class="week-number">1</div>
+        <div class="week-content">
+          <div class="week-theme">Awareness</div>
+          <div class="week-title">See the Pattern Clearly for the First Time</div>
+          <p class="week-desc">You name the invisible loyalty contract that has been running your life. You trace it through your lineage — the women who came before you, who stayed small, who worked hard and never arrived. You understand where the pattern was born — and why staying small once felt like love.</p>
+        </div>
+      </div>
+      <div class="week reveal">
+        <div class="week-number">2</div>
+        <div class="week-content">
+          <div class="week-theme">Release</div>
+          <div class="week-title">Put Down What Was Never Yours to Carry</div>
+          <p class="week-desc">The deep somatic work. You locate guilt and loyalty in the body and stay present with it — not to fix it, but to finally feel it fully. The inner child meditation. The lineage completion ritual — honoring the women before you and releasing the vow with love, not resentment.</p>
+        </div>
+      </div>
+      <div class="week reveal">
+        <div class="week-number">3</div>
+        <div class="week-content">
+          <div class="week-theme">Identity</div>
+          <div class="week-title">Become the Woman Who Is Allowed</div>
+          <p class="week-desc">Who are you without the guilt? This week you begin building your new identity — not in your mind, but in your body and your life. You write your permission statement. You take one bold real-world action that proves to your nervous system: the new story has already begun.</p>
+        </div>
+      </div>
+      <div class="week reveal">
+        <div class="week-number">4</div>
+        <div class="week-content">
+          <div class="week-theme">Embodiment & Activation</div>
+          <div class="week-title">Live It, Anchor It, Make It Real</div>
+          <p class="week-desc">Breathwork and somatic practices to anchor the new identity in your body. And then the most powerful moment of the program — you declare your new story out loud, in front of the group. The other women witness you. Something becomes permanent that could never have happened alone.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT'S INCLUDED ══ -->
+<section class="included">
+  <div class="container-wide">
+    <span class="section-label reveal">Everything included</span>
+    <h2 class="reveal">What you receive when you<br><em>say yes</em></h2>
+    <div class="included-grid">
+      <div class="included-item reveal">
+        <div class="included-icon">🌀</div>
+        <div class="included-title">4 Live Group Calls</div>
+        <p class="included-desc">One deep, intimate live call per week on Zoom. Each call is a full experience — teaching, somatic practice, group sharing, and witnessed transformation.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="included-icon">🌿</div>
+        <div class="included-title">The Sovereign Somatic Reset</div>
+        <p class="included-desc">The complete 3-step body process to locate the loyalty vow, update your nervous system, and recode permission for wealth and visibility.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="included-icon">🕯️</div>
+        <div class="included-title">The Lineage Completion Ritual</div>
+        <p class="included-desc">A guided ceremony to honor the women in your lineage and formally release the loyalty vow — not as betrayal, but as completion and love.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="included-icon">✨</div>
+        <div class="included-title">The Inner Child Permission Tool</div>
+        <p class="included-desc">A guided meditation to bring unconditional love to the part of you who made the loyalty vow — and give her full permission to let it go.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="included-icon">👁️</div>
+        <div class="included-title">Community Witnessing</div>
+        <p class="included-desc">Being seen and witnessed by other women on the same journey. This is not just support — it is medicine. Transformation that happens in front of others lands differently.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="included-icon">📖</div>
+        <div class="included-title">Call Recordings</div>
+        <p class="included-desc">All four calls recorded and available to you. Return to the practices, the meditations, and the teachings whenever you need them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="testimonial-section">
+  <div class="container-wide">
+    <span class="section-label reveal" style="text-align:center; display:block;">What women say</span>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">"In just one — and first! — session she took me so deep and so far that I did not expect to go and I did not experience with anyone else before. I have worked with many healers and practitioners before."</p>
+        <span class="testimonial-author">— Dita</span>
+      </div>
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">"From waking up unable to breathe, feeling pain in my chest, being diagnosed with asthma, and carrying a deep undercurrent of sadness, frustration, and self-doubt — this session brought something profound. Inner peace. Relief. Recognition. I felt seen. I felt heard. I felt myself holding myself again."</p>
+        <span class="testimonial-author">— Merel Jessen</span>
+      </div>
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">"She helped me face it and held me throughout the process steadily and with certainty. Her strength and trust are such a huge part of the process, and she uses it to help you reconnect with yours. She knows she delivers and will get you the transformation that is needed at the time."</p>
+        <span class="testimonial-author">— Ophélie</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section class="about">
+  <div class="container-wide">
+    <div class="about-inner">
+      <img src="zaharina.jpg" alt="Zaharina" class="about-photo reveal">
+      <div>
+        <span class="section-label reveal">Your guide</span>
+        <h2 class="reveal">I broke this pattern.<br><em>I will guide you through yours.</em></h2>
+        <p class="about-text reveal">The blue water, the white sand, the sun shining on a beautiful day in Martinique. And then everything changed.</p>
+        <p class="about-text reveal">In that moment, I felt as though I had to choose between saving my business and keeping peace in my family. I felt like a bad daughter. A bad sister. A bad person.</p>
+        <p class="about-text reveal">Without realising it, I carried the guilt of that moment for more than 20 years. That guilt shaped the way I saw myself. It affected my confidence, my sense of worth, and my ability to fully believe in myself. Part of me felt that I didn't deserve success, abundance, or the life I truly desired.</p>
+        <p class="about-text reveal">It wasn't until I began to truly love and accept myself that something shifted. I realised that somewhere along the way I had made success mean separation. As if having a beautiful life meant leaving my family behind. As if thriving was a betrayal of the people I loved.</p>
+        <p class="about-text reveal"><strong>And when I saw that pattern, I was finally able to choose something different.</strong> Through breaking the conditioning and embodying my true self, I am now living the story of my life I came here to live — claiming my place as the first one in my lineage to become successful and break the spell. And now I guide other women through the exact journey I took.</p>
+        <div class="credentials reveal">
+          <span class="credential">18 Years Combined Experience</span>
+          <span class="credential">Yoga Teacher</span>
+          <span class="credential">Somatic Coach</span>
+          <span class="credential">Embodiment Coach</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INVESTMENT ══ -->
+<section class="investment" id="enroll">
+  <div class="container">
+    <span class="section-label reveal" style="text-align:center; display:block;">Your investment</span>
+    <h2 class="reveal">Ready to write<br><em>your own story?</em></h2>
+    <div class="price-card reveal">
+      <div class="price-label">Write Your Own Story — 4-Week Program</div>
+      <div class="price-amount"><span>€</span>777</div>
+      <div class="price-period">One-time payment · Full program access</div>
+      <div class="price-includes">
+        <div class="price-include-item"><span>4 Live Group Calls on Zoom</span></div>
+        <div class="price-include-item"><span>The Sovereign Somatic Reset — 3-step body process</span></div>
+        <div class="price-include-item"><span>The Lineage Completion Ritual</span></div>
+        <div class="price-include-item"><span>The Inner Child Permission Tool guided meditation</span></div>
+        <div class="price-include-item"><span>Community witnessing and group support</span></div>
+        <div class="price-include-item"><span>All call recordings</span></div>
+      </div>
+    </div>
+    <div class="reveal" style="margin: 0 auto;">
+      <stripe-buy-button
+        buy-button-id="buy_btn_1TeXzEFVwYIHcJQBFWEoKFUH"
+        publishable-key="pk_live_axF1NuQBzry7si8UqNJjZ38a001Oo1uKIK"
+      >
+      </stripe-buy-button>
+    </div>
+    <p class="price-note reveal" style="color: rgba(250,247,242,0.3); margin-top: 20px;">Limited places · Small intimate group · You will receive confirmation within 24 hours</p>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq">
+  <div class="container">
+    <h2 class="reveal">Your questions, <em>answered</em></h2>
+    <div class="faq-item reveal">
+      <p class="faq-q">"Do I need to have attended the masterclass first?"</p>
+      <p class="faq-a">It is not required, but it is recommended. The masterclass gives you a felt sense of the work before you invest in the full program. If you haven't attended yet, <a href="guilt-masterclass.html" style="color: var(--terracotta);">you can register here.</a></p>
+    </div>
+    <div class="faq-item reveal">
+      <p class="faq-q">"What if I can't make a live call?"</p>
+      <p class="faq-a">All calls are recorded and sent to you. However, the live experience — being witnessed in real time by the other women in the group — is where the deepest transformation happens. We encourage you to <strong>protect the time</strong> as a non-negotiable appointment with yourself.</p>
+    </div>
+    <div class="faq-item reveal">
+      <p class="faq-q">"How is this different from therapy or other coaching programs?"</p>
+      <p class="faq-a">This is not therapy and it is not mindset coaching. This is <strong>somatic and lineage work</strong> — we work with the body and the ancestral patterns, not just the mind. You cannot think your way out of a pattern that lives in your nervous system. This goes to the root.</p>
+    </div>
+    <div class="faq-item reveal">
+      <p class="faq-q">"How many women will be in the group?"</p>
+      <p class="faq-a">This is a small, intimate container. Places are limited intentionally — so every woman feels seen, held, and witnessed. This is not a large group program. It is a sacred circle.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container"><p>© 2025 Zaharina · With love 🌿</p></div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
