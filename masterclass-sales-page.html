@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Surviving to Creating — Free Masterclass — The Body Intuitive Method</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #1c1018;
+    --plum:       #3d1538;
+    --plum-mid:   #6b2d64;
+    --plum-soft:  #9b5e94;
+    --blush:      #c4837a;
+    --blush-light:#e8bdb9;
+    --gold:       #b8945a;
+    --gold-light: #dfc38e;
+    --parchment:  #f2ebe0;
+    --cream:      #faf7f2;
+    --white:      #ffffff;
+    --border:     rgba(61,21,56,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--plum);
+    letter-spacing: 0.04em;
+  }
+  .nav-cta {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--plum);
+    padding: 10px 22px;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--plum-mid); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 32px 100px;
+    position: relative;
+    background: var(--plum);
+    overflow: hidden;
+  }
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 64px;
+    max-width: 1180px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: left;
+  }
+  .hero-text { position: relative; }
+
+  .hero-rings {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(196,163,90,0.12);
+    animation: breathe 8s ease-in-out infinite;
+  }
+  .ring:nth-child(1) { width: 300px; height: 300px; animation-delay: 0s; }
+  .ring:nth-child(2) { width: 500px; height: 500px; animation-delay: 1.5s; border-color: rgba(196,163,90,0.08); }
+  .ring:nth-child(3) { width: 720px; height: 720px; animation-delay: 3s; border-color: rgba(196,163,90,0.05); }
+  .ring:nth-child(4) { width: 960px; height: 960px; animation-delay: 4.5s; border-color: rgba(196,163,90,0.03); }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.04); opacity: 0.6; }
+  }
+
+  .hero-visual {
+    position: relative;
+    border: 1px solid rgba(196,163,90,0.35);
+    border-radius: 3px;
+    padding: 10px;
+    background: rgba(255,255,255,0.03);
+  }
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 8vw, 84px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .hero-h1-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: clamp(14px, 2vw, 17px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.75);
+    max-width: 620px;
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    line-height: 1.55;
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(196,163,90,0.35);
+    border-radius: 2px;
+    padding: 16px 28px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .date-badge span {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+  .date-badge .sep {
+    color: rgba(255,255,255,0.25);
+    font-weight: 300;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .hero-path {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    position: relative;
+    margin-bottom: 48px;
+  }
+  .hero-path-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .cta-btn-large {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--plum);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 22px 52px;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .cta-btn-large:hover { background: var(--gold-light); }
+  .cta-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 16px;
+    font-style: italic;
+    position: relative;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    animation: scrollpulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollpulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* ─── SHARED SECTION ─── */
+  section { padding: 96px 32px; }
+  .inner { max-width: 780px; margin: 0 auto; }
+  .inner-wide { max-width: 960px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--plum);
+    margin-bottom: 24px;
+  }
+  h2 em { font-style: italic; }
+  .lead {
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.8;
+    color: var(--ink);
+    opacity: 0.8;
+    max-width: 640px;
+  }
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 40px 0;
+  }
+
+  /* ─── FOR HER ─── */
+  .forher { background: var(--white); }
+  .forher-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--plum);
+    max-width: 680px;
+  }
+  .forher-body strong {
+    font-weight: 600;
+    font-style: normal;
+    color: var(--plum);
+  }
+
+  /* ─── QUOTE ─── */
+  .quote-section {
+    background: var(--parchment);
+    text-align: center;
+    padding: 90px 32px;
+  }
+  .big-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 4.5vw, 42px);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--plum);
+    max-width: 760px;
+    margin: 0 auto 24px;
+    line-height: 1.45;
+  }
+  .quote-attr {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ─── DISCOVER / PROMISES ─── */
+  .discover { background: var(--plum); }
+  .discover h2 { color: var(--white); }
+  .discover .lead { color: rgba(255,255,255,0.6); }
+  .discover .eyebrow { color: var(--gold); }
+  .discover-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(19px, 2.5vw, 23px);
+    font-style: italic;
+    color: var(--gold-light);
+    margin-top: 20px;
+    max-width: 620px;
+  }
+
+  .understand-list {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .understand-item {
+    padding: 26px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .understand-text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.78);
+  }
+
+  /* ─── AFFIRMATION ─── */
+  .affirmation {
+    background: var(--cream);
+    text-align: center;
+    padding: 100px 32px;
+  }
+  .affirmation-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 4vw, 38px);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--plum);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+  .affirmation-quote strong {
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* ─── ABOUT ─── */
+  .about { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-top: 40px;
+  }
+  .about-photo {
+    border: 1px solid var(--border);
+    background: var(--parchment);
+    padding: 8px;
+    border-radius: 2px;
+  }
+  .about-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1px;
+  }
+  .about-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--ink);
+    opacity: 0.8;
+    max-width: 620px;
+  }
+  .about-body strong { color: var(--plum); font-weight: 500; }
+  /* ─── VIP CARD ─── */
+  .vip { background: var(--parchment); }
+  .price-card {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    max-width: 560px;
+    margin: 48px auto 0;
+    background: var(--white);
+  }
+  .price-header {
+    background: var(--plum);
+    padding: 36px 40px;
+    text-align: center;
+  }
+  .price-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .price-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .price-cadence {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 8px;
+    letter-spacing: 0.06em;
+  }
+  .price-body {
+    padding: 32px 40px;
+    background: var(--parchment);
+  }
+  .price-includes { list-style: none; margin-bottom: 28px; }
+  .price-includes li {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .price-includes li:last-child { border-bottom: none; }
+  .check { color: var(--gold); flex-shrink: 0; }
+
+  .enroll-btn {
+    display: block;
+    width: 100%;
+    background: var(--plum);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 1px;
+  }
+  .enroll-btn:hover { background: var(--plum-mid); }
+
+  .payment-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--plum-soft);
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  /* ─── FINAL CTA ─── */
+  .final-cta {
+    background: var(--plum);
+    text-align: center;
+    padding: 110px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta h2 {
+    margin: 0 auto 20px;
+    max-width: 620px;
+    color: var(--white);
+  }
+  .final-cta .lead {
+    margin: 0 auto 16px;
+    text-align: center;
+    color: rgba(255,255,255,0.65);
+  }
+  .final-cta .date-badge { margin-top: 8px; margin-bottom: 36px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--plum);
+    padding: 48px 32px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .footer-links {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 40px;
+    }
+    .hero-visual { order: -1; max-width: 380px; margin: 0 auto; }
+    .hero-text .date-badge { justify-content: center; }
+    .hero-path { justify-content: center; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-photo { max-width: 280px; margin: 0 auto; }
+  }
+
+  @media (max-width: 720px) {
+    nav { padding: 14px 20px; }
+    .upgrade-card { flex-direction: column; gap: 16px; }
+    section { padding: 64px 20px; }
+    .date-badge { padding: 14px 20px; gap: 8px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ring { animation: none; }
+    .scroll-line { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">The Body Intuitive Method</div>
+  <a href="masterclass-register.html" class="nav-cta">Help Me Come Home to Myself</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-rings">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Free Live Masterclass</div>
+      <h1>From Surviving<br><em>to Creating</em></h1>
+      <p class="hero-h1-sub">How to Stop Abandoning Yourself and Start Trusting Your Inner Power and Start Creating the Life You Truly Desire</p>
+      <p class="hero-sub">A free living experience to stop abandoning yourself, trust your body, and choose from an empowered place.</p>
+
+      <div class="date-badge">
+        <span>Thursday, 27 August 2026</span>
+        <span class="sep">·</span>
+        <span>5pm CEST (Madrid Time)</span>
+      </div>
+
+      <a href="masterclass-register.html" class="cta-btn-large">Help Me Come Home to Myself</a>
+      <p class="cta-sub">Live only · VIP option includes the replay + an integration session</p>
+
+      <div class="hero-path">
+        <span>Survival</span>
+        <div class="hero-path-dot"></div>
+        <span>Self-Trust</span>
+        <div class="hero-path-dot"></div>
+        <span>Creation</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="hero-photo.jpg" alt="Zaharina">
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- FOR HER -->
+<section class="forher">
+  <div class="inner">
+    <span class="eyebrow">This is for you if</span>
+    <div class="forher-body">
+      You've done the breathwork. Read the books. Analyzed the patterns. You know your triggers, you've done the inner work — and yet, the moment life gets intense, you're <strong>overthinking, people-pleasing, losing yourself, and reacting instead of responding</strong> all over again.<br><br>
+      This is not a gap in your knowledge. This is a gap between your <strong>head and your body.</strong> And that gap is exactly what this free living experience will show you how to close.
+    </div>
+    <div class="divider"></div>
+    <p class="lead">Join me live to discover why all the inner work you've done hasn't fully changed the way you respond when life triggers you — and how to begin returning to your body, trusting yourself, and choosing from an empowered place.</p>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="big-quote">"The missing piece isn't that you haven't done enough work. It's that when the trigger comes, you leave yourself. The practice is learning how to stay."</div>
+  <div class="quote-attr">Zaharina — The Self-Return Method™</div>
+</div>
+
+<!-- THE MASTERCLASS PROMISE -->
+<section class="discover">
+  <div class="inner-wide">
+    <span class="eyebrow">The Masterclass Promise</span>
+    <h2>Not broken.<br><em>Never were.</em></h2>
+    <p class="lead">By the end of this masterclass, you'll understand why you keep abandoning yourself even after doing "all the work" — and you'll learn the simple pathway to return to your body, trust yourself, and choose from your power.</p>
+    <p class="discover-tagline">"The life you desire is not created by rejecting the version of you who is triggered. It is created by learning how to stay with her."</p>
+
+    <div class="understand-list">
+      <div class="understand-item">
+        <p class="understand-text">You are not broken.</p>
+      </div>
+      <div class="understand-item">
+        <p class="understand-text">Your triggers are not proof that you are failing.</p>
+      </div>
+      <div class="understand-item">
+        <p class="understand-text">The reason the other work hasn't fully landed is because you keep trying to escape, fix, analyze, or transcend the feeling — instead of staying with yourself inside of it.</p>
+      </div>
+      <div class="understand-item">
+        <p class="understand-text">The doorway is simple: return to the body, feel what is here, meet it with love and presence, understand what it's showing you, then choose from an empowered place.</p>
+      </div>
+      <div class="understand-item">
+        <p class="understand-text">You can create your life from self-trust instead of survival.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AFFIRMATION -->
+<section class="affirmation">
+  <div class="affirmation-quote">You are not broken. There is nothing to fix. <strong>You can return to your body, trust yourself, and choose from an empowered place.</strong></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="inner-wide">
+    <span class="eyebrow">Your guide</span>
+    <h2>Zaharina</h2>
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="zaharina-photo.jpg" alt="Zaharina">
+      </div>
+      <div class="about-body">
+        I am a somatic mentor, embodiment coach, and yoga teacher — and I have been in this work for <strong>18 years.</strong><br><br>
+        I created The Self-Return Method™ because I needed it myself. I spent years understanding my patterns in my mind while my body kept running the old programs. The shift didn't come from knowing more. It came from learning to <strong>return to my body</strong> — every single time something activated me — until that return became automatic.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER / VIP -->
+<section class="vip" id="register">
+  <div class="inner">
+    <span class="eyebrow">Save Your Seat</span>
+    <h2>Join live —<br><em>completely free</em></h2>
+    <p class="lead">Thursday, 27 August 2026 · 5pm CEST (Madrid Time). Live attendance only.</p>
+
+    <div class="price-card">
+      <div class="price-header">
+        <span class="price-label">Free Live Experience</span>
+        <div class="price-name">From Surviving to Creating</div>
+        <div class="price-cadence">27 August 2026 · 5pm</div>
+      </div>
+      <div class="price-body">
+        <ul class="price-includes">
+          <li><span class="check">✓</span><span>Live session with Zaharina</span></li>
+          <li><span class="check">✓</span><span>The missing piece behind why triggers still win</span></li>
+          <li><span class="check">✓</span><span>A live practice to begin returning to your body</span></li>
+        </ul>
+        <a href="masterclass-register.html" class="enroll-btn">Help Me Come Home to Myself</a>
+        <p class="payment-note">No replay for free registrants · Live only</p>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="price-header">
+        <span class="price-label">Upgrade</span>
+        <div class="price-name">VIP Access</div>
+        <div class="price-amount"><span style="font-size:24px; vertical-align:super; margin-right:4px;">$</span>99</div>
+        <div class="price-cadence">One-time</div>
+      </div>
+      <div class="price-body">
+        <ul class="price-includes">
+          <li><span class="check">✓</span><span>The masterclass replay</span></li>
+          <li><span class="check">✓</span><span>A guided body-based integration practice</span></li>
+          <li><span class="check">✓</span><span>A workbook / reflection guide</span></li>
+          <li><span class="check">✓</span><span>A private Q&A or group coaching session</span></li>
+          <li><span class="check">✓</span><span>Bonus audio: "Return to Yourself When You're Triggered"</span></li>
+        </ul>
+        <a href="#" class="enroll-btn">Upgrade to VIP — $99</a>
+        <p class="payment-note">If you want to go deeper than the free class, upgrade to VIP for $99 and receive the replay plus an intimate integration session where we'll help you apply this work to your life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <span class="eyebrow">She is grounded. She is confident. She is creating.</span>
+  <h2>From surviving.<br><em>To creating.</em></h2>
+  <p class="lead">You are not broken. There is nothing to fix. Join me live and start returning to your body, trusting yourself, and choosing from an empowered place.</p>
+  <div class="date-badge">
+    <span>Thursday, 27 August 2026</span>
+    <span class="sep">·</span>
+    <span>5pm</span>
+    <span class="sep">·</span>
+    <span>Free</span>
+  </div>
+  <br>
+  <a href="masterclass-register.html" class="cta-btn-large">Help Me Come Home to Myself</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">The Body Intuitive Method</div>
+  <div class="footer-links">@zaharina.rises &nbsp;·&nbsp; bodyintuitivemethod.com &nbsp;·&nbsp; brenda@bodyintuitivemethod.com</div>
+</footer>
+
+
+</body>
+</html>
