@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Return — The Body Intuitive Method</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #1c1018;
+    --plum:       #3d1538;
+    --plum-mid:   #6b2d64;
+    --plum-soft:  #9b5e94;
+    --blush:      #c4837a;
+    --blush-light:#e8bdb9;
+    --gold:       #b8945a;
+    --gold-light: #dfc38e;
+    --parchment:  #f2ebe0;
+    --cream:      #faf7f2;
+    --white:      #ffffff;
+    --border:     rgba(61,21,56,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--plum);
+    letter-spacing: 0.04em;
+  }
+  .nav-cta {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--plum);
+    padding: 10px 22px;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--plum-mid); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 32px 100px;
+    position: relative;
+    background: var(--plum);
+    overflow: hidden;
+  }
+
+  /* Signature element: breathing rings — concentric circles that pulse slowly */
+  .hero-rings {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(196,163,90,0.12);
+    animation: breathe 8s ease-in-out infinite;
+  }
+  .ring:nth-child(1) { width: 300px; height: 300px; animation-delay: 0s; }
+  .ring:nth-child(2) { width: 500px; height: 500px; animation-delay: 1.5s; border-color: rgba(196,163,90,0.08); }
+  .ring:nth-child(3) { width: 720px; height: 720px; animation-delay: 3s; border-color: rgba(196,163,90,0.05); }
+  .ring:nth-child(4) { width: 960px; height: 960px; animation-delay: 4.5s; border-color: rgba(196,163,90,0.03); }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.04); opacity: 0.6; }
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 11vw, 120px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    line-height: 1.55;
+    position: relative;
+    margin-bottom: 48px;
+  }
+  .hero-path {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    position: relative;
+  }
+  .hero-path-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    animation: scrollpulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollpulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* ─── SHARED SECTION ─── */
+  section { padding: 96px 32px; }
+  .inner { max-width: 780px; margin: 0 auto; }
+  .inner-wide { max-width: 960px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--plum);
+    margin-bottom: 24px;
+  }
+  h2 em { font-style: italic; }
+  .lead {
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.8;
+    color: var(--ink);
+    opacity: 0.8;
+    max-width: 640px;
+  }
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 40px 0;
+  }
+
+  /* ─── MIRROR SECTION ─── */
+  .mirror { background: var(--white); }
+  .mirror-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .mirror-col { padding: 40px 36px; }
+  .mirror-col.before { background: var(--plum); border-right: none; }
+  .mirror-col.after { background: var(--parchment); }
+  .mirror-col-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .before .mirror-col-label { color: var(--gold); }
+  .after .mirror-col-label { color: var(--plum-mid); }
+  .mirror-col-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+  .before .mirror-col-title { color: rgba(255,255,255,0.7); }
+  .after .mirror-col-title { color: var(--plum); }
+  .mirror-list { list-style: none; }
+  .mirror-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    line-height: 1.55;
+  }
+  .after .mirror-list li { border-bottom-color: var(--border); }
+  .before .mirror-list li { color: rgba(255,255,255,0.75); }
+  .after .mirror-list li { color: var(--ink); opacity: 0.85; }
+  .mirror-icon { flex-shrink: 0; margin-top: 1px; }
+  .before .mirror-icon { color: rgba(255,255,255,0.3); }
+  .after .mirror-icon { color: var(--gold); }
+  .mirror-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--plum);
+    text-align: center;
+    max-width: 640px;
+    margin: 36px auto 0;
+    line-height: 1.6;
+  }
+
+  /* ─── FOR HER ─── */
+  .forher { background: var(--cream); }
+  .forher-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--plum);
+    max-width: 680px;
+  }
+  .forher-body strong {
+    font-weight: 600;
+    font-style: normal;
+    color: var(--plum);
+  }
+
+  /* ─── METHOD ─── */
+  .method-section { background: var(--plum); }
+  .method-section h2 { color: var(--white); }
+  .method-section .lead { color: rgba(255,255,255,0.6); }
+  .method-section .eyebrow { color: var(--gold); }
+
+  .method-steps {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+    margin-top: 48px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .ms {
+    padding: 24px 14px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .ms:last-child { border-right: none; }
+  .ms-name {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .ms-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    font-style: italic;
+  }
+  .ms.active { background: rgba(196,163,90,0.12); }
+  .ms.active .ms-name { color: var(--gold-light); }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    margin-top: 48px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .pillar {
+    background: rgba(255,255,255,0.04);
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .pillar-icon {
+    font-size: 22px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .pillar-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .pillar-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* ─── WEEK BY WEEK ─── */
+  .weeks-section { background: var(--white); }
+  .weeks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .week-card {
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 26px 28px;
+  }
+  .week-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .week-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--plum);
+    margin-bottom: 8px;
+  }
+  .week-desc {
+    font-size: 14px;
+    color: var(--ink);
+    opacity: 0.75;
+    line-height: 1.65;
+  }
+
+  /* ─── WHAT'S INSIDE ─── */
+  .inside { background: var(--parchment); }
+  .inside-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .inside-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 32px 28px;
+  }
+  .inside-card-icon {
+    font-size: 20px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .inside-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--plum);
+    margin-bottom: 10px;
+  }
+  .inside-card p {
+    font-size: 14px;
+    color: var(--ink);
+    opacity: 0.75;
+    line-height: 1.7;
+  }
+
+  /* ─── QUOTE ─── */
+  .quote-section {
+    background: var(--cream);
+    text-align: center;
+    padding: 80px 32px;
+  }
+  .big-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--plum);
+    max-width: 700px;
+    margin: 0 auto 24px;
+    line-height: 1.35;
+  }
+  .quote-attr {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ─── INVESTMENT ─── */
+  .investment { background: var(--white); }
+  .price-card {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    max-width: 560px;
+    margin: 48px auto 0;
+  }
+  .price-header {
+    background: var(--plum);
+    padding: 36px 40px;
+    text-align: center;
+  }
+  .price-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .price-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .price-amount span {
+    font-size: 24px;
+    vertical-align: super;
+    margin-right: 4px;
+  }
+  .price-cadence {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 8px;
+    letter-spacing: 0.06em;
+  }
+  .price-body {
+    padding: 32px 40px;
+    background: var(--parchment);
+  }
+  .price-includes { list-style: none; margin-bottom: 28px; }
+  .price-includes li {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .price-includes li:last-child { border-bottom: none; }
+  .check { color: var(--gold); flex-shrink: 0; }
+
+  .pricing-tiers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .price-tile {
+    background: var(--plum);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .price-tile.featured {
+    background: linear-gradient(160deg, var(--plum), var(--plum-mid));
+    border-bottom: 3px solid var(--gold);
+  }
+  .price-tile:first-child { border-right: 1px solid rgba(255,255,255,0.12); }
+  .price-tile .price-amount { font-size: 44px; }
+  .price-tile .price-name { font-size: 22px; margin-bottom: 12px; }
+  .tier-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 22px;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--plum);
+    background: var(--gold-light);
+    text-decoration: none;
+    border-radius: 1px;
+    transition: background 0.2s;
+  }
+  .tier-btn:hover { background: var(--white); }
+  .price-tile:not(.featured) .tier-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: var(--white);
+  }
+  .price-tile:not(.featured) .tier-btn:hover { background: rgba(255,255,255,0.1); }
+  .tier-note {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 11px;
+    font-style: italic;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .objection-box {
+    border-left: 3px solid var(--gold);
+    background: var(--parchment);
+    padding: 18px 24px;
+    margin-top: 14px;
+    border-radius: 0 2px 2px 0;
+  }
+  .objection-box p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink);
+    opacity: 0.85;
+  }
+  .objection-box strong { color: var(--plum); }
+
+  .bonus-box {
+    border: 1px dashed var(--gold);
+    background: rgba(184,148,90,0.08);
+    border-radius: 2px;
+    padding: 22px 24px;
+    margin: 4px 0 28px;
+  }
+  .bonus-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .bonus-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--plum);
+    margin-bottom: 6px;
+  }
+  .bonus-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink);
+    opacity: 0.85;
+  }
+
+  .enroll-btn {
+    display: block;
+    width: 100%;
+    background: var(--plum);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 1px;
+  }
+  .enroll-btn:hover { background: var(--plum-mid); }
+
+  .payment-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--plum-soft);
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  /* ─── SOCIAL PROOF ─── */
+  .social-proof { background: var(--white); }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .testimonial-card {
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 32px 28px;
+  }
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--plum);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .testimonial-attr {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--plum-soft);
+    text-transform: uppercase;
+  }
+
+  /* ─── PRICE JUSTIFY ─── */
+  .price-justify {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--ink);
+    opacity: 0.75;
+    max-width: 560px;
+    margin: 40px auto 0;
+  }
+
+  /* ─── FAQ ─── */
+  .faq { background: var(--cream); }
+  .faq-list { margin-top: 48px; max-width: 720px; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  .faq-item summary {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--plum);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 20px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after { content: '–'; }
+  .faq-answer {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--ink);
+    opacity: 0.8;
+    max-width: 640px;
+    margin-top: 14px;
+  }
+
+  /* ─── UPGRADE BRIDGE ─── */
+  .upgrade { background: var(--parchment); }
+  .upgrade-card {
+    border: 1px solid var(--gold-light);
+    background: var(--white);
+    border-radius: 2px;
+    padding: 40px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-top: 40px;
+  }
+  .upgrade-icon { font-size: 32px; flex-shrink: 0; }
+  .upgrade-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--plum);
+    margin-bottom: 10px;
+  }
+  .upgrade-body { font-size: 14px; line-height: 1.75; opacity: 0.8; }
+  .upgrade-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--plum-mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--blush-light);
+    padding-bottom: 2px;
+  }
+
+  /* ─── ABOUT ─── */
+  .about { background: var(--plum); }
+  .about h2 { color: var(--white); }
+  .about-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.7);
+    max-width: 620px;
+    margin-top: 24px;
+  }
+  .about-body strong { color: var(--white); font-weight: 400; }
+  .about-details {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .about-detail-item { }
+  .about-detail-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .about-detail-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+  }
+
+  /* ─── FINAL CTA ─── */
+  .final-cta {
+    background: var(--cream);
+    text-align: center;
+    padding: 100px 32px;
+  }
+  .final-cta h2 {
+    margin: 0 auto 20px;
+    max-width: 560px;
+  }
+  .final-cta .lead {
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+  .cta-btn-large {
+    display: inline-block;
+    background: var(--plum);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 22px 52px;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: background 0.2s;
+  }
+  .cta-btn-large:hover { background: var(--plum-mid); }
+  .cta-sub {
+    font-size: 13px;
+    color: var(--plum-soft);
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--plum);
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .footer-links {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 720px) {
+    nav { padding: 14px 20px; }
+    .mirror-grid { grid-template-columns: 1fr; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .pricing-tiers { grid-template-columns: 1fr; }
+    .weeks-grid { grid-template-columns: 1fr; }
+    .mirror-col.before { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .method-steps { grid-template-columns: repeat(4, 1fr); }
+    .pillars { grid-template-columns: 1fr 1fr; }
+    .inside-grid { grid-template-columns: 1fr; }
+    .upgrade-card { flex-direction: column; gap: 16px; }
+    .about-details { gap: 24px; }
+    section { padding: 64px 20px; }
+    .ms { padding: 16px 8px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ring { animation: none; }
+    .scroll-line { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">The Body Intuitive Method</div>
+  <a href="#enroll" class="nav-cta">Enroll Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-rings">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+  <div class="hero-eyebrow">A 6-Week Group Container</div>
+  <h1>The Return</h1>
+  <p class="hero-sub">Stop abandoning yourself when life gets hard. Come back to your body, your power, and your truth — every single time.</p>
+  <div class="hero-path">
+    <span>Survival</span>
+    <div class="hero-path-dot"></div>
+    <span>Self-Trust</span>
+    <div class="hero-path-dot"></div>
+    <span>Creation</span>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MIRROR: BEFORE / AFTER -->
+<section class="mirror">
+  <div class="inner-wide">
+    <span class="eyebrow">The Transformation</span>
+    <h2>Maybe <em>this</em><br>is you.</h2>
+    <div class="mirror-grid">
+      <div class="mirror-col before">
+        <span class="mirror-col-label">She was</span>
+        <div class="mirror-col-title">Waiting to feel safe before she lives</div>
+        <ul class="mirror-list">
+          <li><span class="mirror-icon">♡</span><span>Waiting to feel safe before she lets herself live</span></li>
+          <li><span class="mirror-icon">♡</span><span>Feeling the old contraction and pulling away instead of staying</span></li>
+          <li><span class="mirror-icon">♡</span><span>Protecting, hiding, controlling — instead of choosing</span></li>
+          <li><span class="mirror-icon">♡</span><span>Abandoning herself the moment something activates her</span></li>
+          <li><span class="mirror-icon">♡</span><span>Disappearing inside relationships that ask too much of her</span></li>
+          <li><span class="mirror-icon">♡</span><span>Serving from performance, perfection, and survival</span></li>
+        </ul>
+      </div>
+      <div class="mirror-col after">
+        <span class="mirror-col-label">This is what you become</span>
+        <div class="mirror-col-title">Present, whole, and creating from truth</div>
+        <ul class="mirror-list">
+          <li><span class="mirror-icon">✓</span><span>Feels the fear — and stays</span></li>
+          <li><span class="mirror-icon">✓</span><span>Listens to herself, holds herself, chooses</span></li>
+          <li><span class="mirror-icon">✓</span><span>Wakes up and checks in with herself</span></li>
+          <li><span class="mirror-icon">✓</span><span>Moves her body because she loves being in it</span></li>
+          <li><span class="mirror-icon">✓</span><span>Creates because her life has meaning</span></li>
+          <li><span class="mirror-icon">✓</span><span>Loves from wholeness, and lets herself receive</span></li>
+          <li><span class="mirror-icon">✓</span><span>Chooses relationships that expand her, not ones that require her to disappear</span></li>
+          <li><span class="mirror-icon">✓</span><span>Serves from presence — not performance, not perfection, not survival</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="mirror-note">She feels the old contraction in her chest, the urge to protect, the impulse to hide, the desire to control — and instead of abandoning herself, she comes closer.<br>She listens.<br>She holds herself.<br>She chooses.</p>
+  </div>
+</section>
+
+<!-- FOR HER -->
+<section class="forher">
+  <div class="inner">
+    <span class="eyebrow">This is for you if</span>
+    <div class="forher-body">
+      You've done the inner work. You understand your patterns. You know your triggers, you've read the books, you've been to therapy — and yet, the moment something activates you, <strong>you're right back there.</strong> Reacting. Abandoning yourself. Wondering why the knowing never seems to become living.<br><br>
+      This is not a gap in your knowledge. This is a gap between your <strong>head and your body.</strong> And that gap is exactly where The Return lives.
+    </div>
+    <div class="divider"></div>
+    <p class="lead">The Return is a 6-week live group container where you practice The Self-Return Method™ in real time — until it becomes the way you move through your entire life.</p>
+  </div>
+</section>
+
+<!-- THE METHOD -->
+<section class="method-section">
+  <div class="inner-wide">
+    <span class="eyebrow">The Self-Return Method™</span>
+    <h2>Seven steps.<br><em>One home.</em></h2>
+    <p class="lead">The method you experienced in the masterclass — practiced, deepened, and embodied over 6 weeks until it is yours.</p>
+
+    <div class="method-steps">
+      <div class="ms"><div class="ms-name">Trigger</div><div class="ms-sub">Activation</div></div>
+      <div class="ms active"><div class="ms-name">Return</div><div class="ms-sub">Body</div></div>
+      <div class="ms"><div class="ms-name">Feel</div><div class="ms-sub">Emotions</div></div>
+      <div class="ms active"><div class="ms-name">Stay</div><div class="ms-sub">Presence</div></div>
+      <div class="ms"><div class="ms-name">Understand</div><div class="ms-sub">Healing</div></div>
+      <div class="ms active"><div class="ms-name">Choose</div><div class="ms-sub">Power</div></div>
+      <div class="ms"><div class="ms-name">Act</div><div class="ms-sub">Aligned</div></div>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <span class="pillar-icon">🌊</span>
+        <div class="pillar-name">Emotional Freedom</div>
+        <div class="pillar-desc">She feels, releases and heals what no longer serves her</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">♡</span>
+        <div class="pillar-name">Self-Trust</div>
+        <div class="pillar-desc">She knows herself, listens to her body and makes aligned choices</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🔥</span>
+        <div class="pillar-name">Empowerment</div>
+        <div class="pillar-desc">She stops giving her power away and takes full responsibility</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🌿</span>
+        <div class="pillar-name">Inner Peace</div>
+        <div class="pillar-desc">She stays with herself instead of abandoning herself</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">∞</span>
+        <div class="pillar-name">Creation</div>
+        <div class="pillar-desc">She becomes the woman who attracts and creates the life she desires</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEK BY WEEK -->
+<section class="weeks-section">
+  <div class="inner-wide">
+    <span class="eyebrow">The Arc</span>
+    <h2>Six weeks.<br><em>One clear path.</em></h2>
+    <p class="lead">Each live call includes hot seat coaching, so you bring what's actually happening in your life and get worked with directly — not just taught at.</p>
+    <div class="weeks-grid">
+      <div class="week-card">
+        <span class="week-num">Week 1</span>
+        <div class="week-title">Coming Home to Safety</div>
+        <div class="week-desc">Learn to feel safe in your body again. This is the ground everything else is built on.</div>
+      </div>
+      <div class="week-card">
+        <span class="week-num">Week 2</span>
+        <div class="week-title">Emotional Mastery</div>
+        <div class="week-desc">Learn to be with your emotions instead of managing, avoiding, or intellectualizing them.</div>
+      </div>
+      <div class="week-card">
+        <span class="week-num">Week 3</span>
+        <div class="week-title">From Reaction to Response</div>
+        <div class="week-desc">Build the capacity to feel fully and still choose your next move — instead of reacting on autopilot.</div>
+      </div>
+      <div class="week-card">
+        <span class="week-num">Week 4</span>
+        <div class="week-title">Life Force &amp; Power</div>
+        <div class="week-desc">Reconnect with your life force, your sensuality, and the energy you've been managing instead of living.</div>
+      </div>
+      <div class="week-card">
+        <span class="week-num">Week 5</span>
+        <div class="week-title">The Creator State</div>
+        <div class="week-desc">Step into your power as the creator of your life — seeing possibilities instead of blockages.</div>
+      </div>
+      <div class="week-card">
+        <span class="week-num">Week 6</span>
+        <div class="week-title">Integration</div>
+        <div class="week-desc">Bring it all home. Not a new idea to understand — a new way of being you can actually live from.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside">
+  <div class="inner-wide">
+    <span class="eyebrow">What's Included</span>
+    <h2>Six weeks of<br><em>coming home to yourself</em></h2>
+    <div class="inside-grid">
+      <div class="inside-card">
+        <span class="inside-card-icon">🎙</span>
+        <div class="inside-card-title">6 Live Weekly Calls</div>
+        <p>Live group sessions every week — teaching, guided somatic practice, and real-time integration. You don't just learn the method. You live it, with others, in real time.</p>
+      </div>
+      <div class="inside-card">
+        <span class="inside-card-icon">🌀</span>
+        <div class="inside-card-title">Weekly Somatic Practice</div>
+        <p>Each week builds on the last. We move through all five pillars — Emotional Freedom, Self-Trust, Empowerment, Inner Peace, Creation — in a sequence designed for deep embodiment.</p>
+      </div>
+      <div class="inside-card">
+        <span class="inside-card-icon">👁</span>
+        <div class="inside-card-title">The Self-Return Method™ Training</div>
+        <p>Full training in each of the 7 steps — not as concepts, but as lived tools you can use the moment life triggers you. You leave with a method that works in your body, not just your mind.</p>
+      </div>
+      <div class="inside-card">
+        <span class="inside-card-icon">🫂</span>
+        <div class="inside-card-title">A Container of Women</div>
+        <p>There is something that happens when women practice this work together. You will feel seen in ways you have never felt seen. The group itself becomes part of the healing.</p>
+      </div>
+      <div class="inside-card">
+        <span class="inside-card-icon">🎧</span>
+        <div class="inside-card-title">Recordings + Practice Library</div>
+        <p>Every call recorded and yours to keep. A growing library of somatic practices to use between sessions — and long after the container ends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULLQUOTE -->
+<div class="quote-section">
+  <div class="big-quote">"She no longer reacts to life.<br>She responds from her power."</div>
+  <div class="quote-attr">The Self-Return Method™</div>
+</div>
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof">
+  <div class="inner-wide">
+    <span class="eyebrow">Women Who Returned</span>
+    <h2>What other women<br><em>have to say.</em></h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"I had no idea that I had been doing 'that' my whole life... Zaharina led me to recognize that I was actually abandoning myself — without even realizing it. Once I brought awareness to it, once I learned to change my automatic, autopilot reactions and instead stay with myself and hold myself through what I was experiencing, everything started to shift. It has genuinely changed my life."</div>
+        <div class="testimonial-attr">— Dita</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"This experience gently guided me back into deep connection with my body — listening to what it was asking for, softening control... Through her guidance, I felt myself return to my femininity, my sensuality, and my sexual life force — alive, fluid, and deeply rooted within me."</div>
+        <div class="testimonial-attr">— Sonia Tani</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"Zaharina became a portal back to myself. She reminded me of the importance of connection — to my inner world, my power, and my potential. This session brought something profound: inner peace, relief, recognition. I felt seen. I felt heard. I felt myself holding myself again."</div>
+        <div class="testimonial-attr">— Merel Jessen</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"In an hour, she connected me to my body in a way that I haven't experienced in years. With Zaharina, I experienced real life transformation and emotional freedom which lands in the body."</div>
+        <div class="testimonial-attr">— Ophélie</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section class="investment" id="enroll">
+  <div class="inner">
+    <span class="eyebrow">Your Investment</span>
+    <h2>The Return<br><em>Group Container</em></h2>
+    <p class="lead">Six weeks. Seven steps. One woman who finally stops leaving herself — and starts creating from that place. The next cohort begins September 11th.</p>
+    <p class="price-justify">Private somatic and life coaching sessions typically run €130–€260 per hour, with experienced coaches charging more. The Return gives you six live group calls, a full embodiment method, direct support between sessions, and a practice library you keep for life — for close to the cost of three private sessions alone. This isn't a course you watch. It's the container where the knowing you already have finally becomes how you live.</p>
+
+    <div class="price-card">
+      <div class="pricing-tiers">
+        <div class="price-tile featured">
+          <span class="price-label">Early Bird</span>
+          <div class="price-name">The Return</div>
+          <div class="price-amount"><span>€</span>750</div>
+          <div class="price-cadence">or 2 payments of €375<br>Contact me directly to set up the payment plan</div>
+          <a href="https://paypal.me/BrendaAlasDelgado/750EUR" class="tier-btn">Choose Early Bird</a>
+        </div>
+        <div class="price-tile">
+          <span class="price-label">Regular Price</span>
+          <div class="price-name">The Return</div>
+          <div class="price-amount"><span>€</span>900</div>
+          <div class="price-cadence">or 3 payments of €300<br>Contact me directly to set up the payment plan</div>
+          <span class="tier-note">Opens after Early Bird ends</span>
+        </div>
+      </div>
+      <div class="price-body">
+        <ul class="price-includes">
+          <li><span class="check">✓</span><span>6 live group calls, with hot seat coaching</span></li>
+          <li><span class="check">✓</span><span>Full Self-Return Method™ training</span></li>
+          <li><span class="check">✓</span><span>Recordings + lifetime practice library</span></li>
+          <li><span class="check">✓</span><span>An embodiment workbook to guide your practice</span></li>
+          <li><span class="check">✓</span><span>A private community space to stay held between calls</span></li>
+          <li><span class="check">✓</span><span>A container of sovereign women</span></li>
+        </ul>
+
+        <div class="bonus-box">
+          <span class="bonus-label">Limited-Time Bonus</span>
+          <div class="bonus-title">A private 1:1 session + 3 months in Intuitive Movement</div>
+          <div class="bonus-body">Go deeper with a private 1:1 session with Zaharina to apply the method to your life — plus three months inside Intuitive Movement, our ongoing somatic movement community, so the practice doesn't stop when the six weeks end.</div>
+        </div>
+
+        <a href="https://paypal.me/BrendaAlasDelgado/750EUR" class="enroll-btn">I Am Ready — Enroll Now</a>
+        <p class="payment-note">Buttons above charge the full one-time price · Early Bird pricing ends September 6 · Spaces are limited</p>
+
+        <div class="objection-box">
+          <p><strong>"I don't have time."</strong> This container is built to fit into real life, not add to your overwhelm. The work is the thing that gives you time and energy back, not one more thing pulling from it.</p>
+        </div>
+        <div class="objection-box">
+          <p><strong>"I'm scared to invest."</strong> That fear is exactly the pattern we're working with. This isn't about being fearless before you say yes. It's about staying with yourself as you do.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPGRADE BRIDGE -->
+<section class="upgrade">
+  <div class="inner">
+    <span class="eyebrow">Ready to go deeper?</span>
+    <h2>For the woman who<br><em>wants more</em></h2>
+    <p class="lead">The Return is where the work begins. For women who want full somatic immersion with direct 1:1 support, there is a next step.</p>
+    <div class="upgrade-card">
+      <div class="upgrade-icon">◈</div>
+      <div>
+        <div class="upgrade-title">She Is Sovereign — Private Mentorship</div>
+        <div class="upgrade-body">A 3 or 6-month private 1:1 container where we go all the way in. Your body, your patterns, your life — with Zaharina's full attention every step of the way. For the woman who is ready to stop circling the work and be fully held inside it.<br><br>Past participants of The Return receive priority access and a dedicated pathway into private mentorship.</div>
+        <a href="https://forms.gle/k27bEqFtq767tWs89" class="upgrade-link">Apply for private mentorship →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="inner">
+    <span class="eyebrow">Before You Decide</span>
+    <h2>Questions you might<br><em>be holding</em></h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What if I miss a live call?</summary>
+        <p class="faq-answer">Every session is recorded and yours to keep, so you never lose access — but the live practice is where the deepest shifts happen, so plan to attend as many as you can.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is this therapy?</summary>
+        <p class="faq-answer">No. The Return is a somatic embodiment container, not a substitute for therapy or clinical mental health treatment. Many women do both — this work complements therapy by helping the insight actually land in the body.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's your refund or cancellation policy?</summary>
+        <p class="faq-answer">This is a live container, not a digital product — once you enroll, your spot is held for you and all sales are final. Please only say yes if you are ready to fully commit to the six weeks.</p>
+      </details>
+      <details class="faq-item">
+        <summary>I've already done a lot of therapy and inner work — will this really be different?</summary>
+        <p class="faq-answer">Most women in The Return have too. What's missing was never understanding — it's embodiment. This method meets you at the exact moment insight fails: when you're triggered, in your body, in real time.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="inner">
+    <span class="eyebrow">Your guide</span>
+    <h2>Zaharina</h2>
+    <div class="about-body">
+      I am a somatic mentor, embodiment coach, and yoga teacher — and I have been in this work for <strong>18 years.</strong><br><br>
+      I created The Self-Return Method™ because I needed it myself. I spent years understanding my patterns in my mind while my body kept running the old programs. The shift didn't come from knowing more. It came from learning to <strong>return to my body</strong> — every single time something activated me — until that return became automatic. Until it became me.<br><br>
+      That is what I teach. Not a concept. A practice. <strong>The body is the mentor.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="inner">
+    <span class="eyebrow">She is grounded. She is confident. She is creating.</span>
+    <h2>The trigger<br><em>still comes.</em></h2>
+    <p class="lead">Even with the strongest emotions, she stays with herself. That is what six weeks inside The Return gives you. Not a new version of yourself — the real one. Finally home.</p>
+    <a href="#enroll" class="cta-btn-large">I Am Ready — Join The Return</a>
+    <p class="cta-sub">Early Bird €750 · Regular €900 · Spaces limited</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">The Body Intuitive Method</div>
+  <div class="footer-links">@zaharina.rises &nbsp;·&nbsp; bodyintuitivemethod.com</div>
+</footer>
+
+</body>
+</html>
