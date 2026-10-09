@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>She Is Sovereign — Zaharina</title>
+<title>She Is Sovereign · Zaharina</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -20,8 +20,10 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 4
 .logo{font-family:var(--serif);font-size:18px;font-weight:300;letter-spacing:0.12em;}
 .nav-cta{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:0.5px solid var(--gold);padding-bottom:2px;font-weight:400;transition:opacity 0.3s;}
 .nav-cta:hover{opacity:0.6;}
-.hero{min-height:96vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 32px 80px;position:relative;overflow:hidden;}
+.hero{min-height:96vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:64px 32px 80px;position:relative;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 15% 20%,rgba(168,132,90,0.06) 0%,transparent 60%),radial-gradient(ellipse 50% 60% at 85% 80%,rgba(168,132,90,0.05) 0%,transparent 60%);pointer-events:none;}
+.hero-photo-wrap{margin-bottom:36px;opacity:0;animation:fadeUp 0.9s ease 0s forwards;}
+.hero-photo{width:170px;height:226px;object-fit:cover;object-position:top;border-radius:85px 85px 0 0;display:block;box-shadow:0 0 0 6px var(--cream),0 0 0 6.6px var(--gold);}
 .hero-ornament{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);margin:0 auto 40px;}
 .hero-eyebrow{font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;font-weight:400;}
 .hero-stop{font-family:var(--serif);font-size:clamp(52px,8vw,96px);font-weight:300;font-style:italic;color:var(--gold);line-height:1;margin-bottom:20px;opacity:0;transform:translateY(20px);animation:fadeUp 0.9s ease 0.2s forwards;}
@@ -64,7 +66,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 4
 .body em{font-style:italic;color:var(--ink);}
 .pain-list{list-style:none;margin:40px 0;}
 .pain-list li{padding:22px 0;border-bottom:0.5px solid var(--border);font-family:var(--serif);font-size:19px;font-weight:300;color:var(--ink);display:flex;align-items:flex-start;gap:20px;line-height:1.5;}
-.pain-list li::before{content:'—';color:var(--gold);flex-shrink:0;margin-top:3px;}
+.pain-list li::before{content:'✦';font-size:10px;color:var(--gold);flex-shrink:0;margin-top:9px;}
 .pain-close{margin-top:40px;font-family:var(--serif);font-size:22px;font-style:italic;font-weight:300;color:var(--ink);border-left:2px solid var(--gold);padding-left:28px;line-height:1.5;}
 .origin-layout{display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start;margin:40px 0;}
 .origin-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;display:block;}
@@ -124,7 +126,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 4
 .nfy-headline{font-family:var(--serif);font-size:28px;font-weight:300;color:var(--cream);margin-bottom:28px;line-height:1.3;}
 .nfy-list{list-style:none;}
 .nfy-list li{padding:16px 0;border-bottom:0.5px solid rgba(168,132,90,0.2);font-size:15px;color:rgba(248,244,238,0.6);display:flex;gap:16px;line-height:1.7;}
-.nfy-list li::before{content:'—';color:var(--gold);flex-shrink:0;}
+.nfy-list li::before{content:'✦';font-size:10px;color:var(--gold);flex-shrink:0;margin-top:5px;}
 .nfy-list li:last-child{border-bottom:none;}
 .testimonials-section{padding:100px 32px;background:var(--cream);}
 .testimonials-inner{max-width:900px;margin:0 auto;}
@@ -151,6 +153,10 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 4
 .investment-box{border:1px solid var(--gold);padding:48px;text-align:center;margin-top:48px;position:relative;}
 .investment-box::before{content:'✦';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--parchment);padding:0 16px;color:var(--gold);font-size:14px;}
 .investment-amount{font-family:var(--serif);font-size:48px;font-weight:300;color:var(--ink);margin-bottom:8px;}
+.investment-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:32px;}
+.investment-option+.investment-option{border-left:0.5px solid var(--border);}
+.investment-option-sub{font-size:13px;color:var(--warm-gray);font-style:italic;}
+@media(max-width:600px){.investment-option+.investment-option{border-left:0;border-top:0.5px solid var(--border);padding-top:32px;}}
 .investment-sub{font-size:13px;color:var(--warm-gray);font-style:italic;margin-bottom:32px;}
 .btn-gold{display:inline-block;background:var(--gold);color:var(--ink);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;padding:20px 52px;transition:all 0.3s ease;font-weight:500;}
 .btn-gold:hover{background:var(--gold-light);}
@@ -194,7 +200,7 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
 </head>
 <body>
 
-<div class="hook">For women who have done the work — and are ready to feel it &nbsp;·&nbsp; 4 women held at one time &nbsp;·&nbsp; application only</div>
+<div class="hook">For women who have done the work and are ready to feel it &nbsp;·&nbsp; a few clients at a time &nbsp;·&nbsp; application only</div>
 
 <nav>
   <div class="logo">Zaharina</div>
@@ -203,28 +209,26 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
 
 <div class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-ornament"></div>
-  <p class="hero-eyebrow">She Is Sovereign — The Feminine Reclamation</p>
+  <div class="hero-photo-wrap"><img class="hero-photo" src="zaharina-photo.jpg" alt="Zaharina" /></div>
+  <p class="hero-eyebrow">She Is Sovereign: The Feminine Reclamation</p>
   <p class="hero-stop">Stop Ascending.</p>
-  <h1 class="hero-statement">The Power You Seek Isn't In Your Mind —<br><em>It's In Your Descent.</em></h1>
-  <p class="hero-qualifier">A Private 6-Month Somatic Journey for the Woman Who is Done "Performing" Her Healing and Ready to Finally Inhabit Her Sovereignty.</p>
+  <h1 class="hero-statement">The Power You Seek Isn't In Your Mind.<br><em>It's In Your Descent.</em></h1>
+  <p class="hero-qualifier">A Private 3 or 6-Month Somatic Journey for the Woman Who is Done "Performing" Her Healing and Ready to Finally Inhabit Her Sovereignty.</p>
   <div class="hero-rule"></div>
   <p class="hero-sub">Your mind has taken you this far.<br><em>Your body knows the rest.</em></p>
   <a class="btn-primary" href="https://forms.gle/n5NddvC1dQuB94Nh6" target="_blank">Feel the call? Begin here →</a>
-  <p class="hero-note">Currently enrolling · 2 spaces remaining</p>
+  <p class="hero-note">Currently enrolling</p>
 </div>
 
 <div class="authority reveal">
   <div class="authority-inner">
     <span class="auth-label">This is not scale. This is precision.</span>
     <div class="authority-grid">
-      <div class="auth-item"><span class="auth-num">20</span><span class="auth-desc">Women.<br>Every one a breakthrough.</span></div>
       <div class="auth-item"><span class="auth-num">100%</span><span class="auth-desc">Accessed results they could<br>not reach before</span></div>
-      <div class="auth-item"><span class="auth-num">4</span><span class="auth-desc">Women held at<br>one time — by design</span></div>
-      <div class="auth-item"><span class="auth-num">4 yrs</span><span class="auth-desc">Of personal and<br>clinical descent work</span></div>
     </div>
     <div class="auth-qualifiers">
-      <span class="auth-qualifier-item">A highly selective private 6-month container</span>
+      <span class="auth-qualifier-item">A highly selective private container</span>
+      <span class="auth-qualifier-item">I only take a few clients at a time, so I can fully focus on each one</span>
       <span class="auth-qualifier-item">Somatic, trauma-aware, and identity-level transformation</span>
       <span class="auth-qualifier-item">For women who have outgrown insight without embodiment</span>
     </div>
@@ -237,26 +241,26 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
 
 <div class="testimonial-strip reveal">
   <div class="testimonial-strip-inner">
-    <p class="t-quote">"I felt myself return to my femininity, my sensuality, and my sexual life force — alive, fluid, and deeply rooted within me. Zaharina leads with depth, care, and embodied devotion."</p>
-    <p class="t-name">— Sonia Tani</p>
+    <p class="t-quote">"I felt myself return to my femininity, my sensuality, and my sexual life force, alive, fluid, and deeply rooted within me. Zaharina leads with depth, care, and embodied devotion."</p>
+    <p class="t-name">Sonia Tani</p>
   </div>
 </div>
 
 <section class="section reveal">
   <span class="section-label">Sound familiar?</span>
   <h2 class="section-headline">You have done <em>everything right.</em><br>And something is still missing.</h2>
-  <p class="body">She is spiritually awake — and somatically asleep. She knows the concepts. She has done the therapy, the retreats, the breathwork, the yoga. She can articulate her patterns with stunning clarity. And yet — nothing fully shifts.</p>
+  <p class="body">She is spiritually awake, and somatically asleep. She knows the concepts. She has done the therapy, the retreats, the breathwork, the yoga. She can articulate her patterns with stunning clarity. And yet, nothing fully shifts.</p>
   <p class="body">She finds herself in the same loops. The same exhaustion. The same reality recreating itself. Wondering why knowing is never enough. She lives mostly from the neck up. Her body holds the answers she keeps searching for in her mind.</p>
-  <p class="body">She is not broken. She is <em>unmet</em> — by herself, in the deepest places. She is tired of performing her healing. She wants to actually feel it.</p>
-  <p class="body">You are spiritually literate. You speak the language of healing fluently — inner child, trauma, patterns, wounds, nervous system. You have done the therapy, the retreats, the breathwork, the yoga. You can explain your psychology with precision.</p>
-  <p class="body">And yet. In the quiet between accomplishments — at 3am, in the pause between one achievement and the next — something unnamed persists.</p>
+  <p class="body">She is not broken. She is <em>unmet</em>, by herself, in the deepest places. She is tired of performing her healing. She wants to actually feel it.</p>
+  <p class="body">You are spiritually literate. You speak the language of healing fluently: inner child, trauma, patterns, wounds, nervous system. You have done the therapy, the retreats, the breathwork, the yoga. You can explain your psychology with precision.</p>
+  <p class="body">And yet. In the quiet between accomplishments, at 3am, in the pause between one achievement and the next, something unnamed persists.</p>
   <ul class="pain-list">
     <li>You wake in the night with the feeling your life is passing by while you manage yourself beautifully from the outside</li>
-    <li>You can articulate every pattern you have — and watch yourself repeat them anyway</li>
+    <li>You can articulate every pattern you have, and watch yourself repeat them anyway</li>
     <li>Anxiety lives in your body like a permanent tenant you have learned to accommodate</li>
     <li>You perform composure in every room while something underneath is quietly exhausted</li>
     <li>You have collected every concept about yourself. You have never once <em>felt</em> it.</li>
-    <li>You are doing all the right things — and you are still in survival</li>
+    <li>You are doing all the right things, and you are still in survival</li>
   </ul>
   <div class="pain-close">
     This is not a mindset problem.<br>It was never a mindset problem.<br>It is a body that has never been met.
@@ -266,59 +270,51 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
 <section class="section reveal">
   <span class="section-label">The origin</span>
   <h2 class="section-headline">I know this because<br><em>I lived every stage of it.</em></h2>
-  <div class="origin-layout">
-    <div>
-      <p class="body">For 18 years I have lived on a spiritual path. I have been a yoga teacher. I have sat in Vipassana — ten days of pure silence, pure body, pure presence — multiple times. I have lived inside a spiritual community where the descent was not a concept but a daily practice. I have done the shadow work, the somatic work, the group work, the deep inner work for years.</p>
-      <p class="body">And before all of that brought me here — I went through <em>all of it.</em></p>
-    </div>
-    <div class="origin-photo-wrap">
-      <img class="origin-photo" src="https://i.ibb.co/6cHRLvJn/zaharina.jpg" alt="Zaharina" />
-      <p class="origin-photo-caption">Zaharina</p>
-    </div>
-  </div>
+  <p class="body">For 18 years I have lived on a spiritual path. I have been a yoga teacher. I have sat in Vipassana multiple times: ten days of pure silence, pure body, pure presence. I have lived inside a spiritual community where the descent was not a concept but a daily practice. I have done the shadow work, the somatic work, the group work, the deep inner work for years.</p>
+  <p class="body">And before all of that brought me here, I went through <em>all of it.</em></p>
   <div class="origin-timeline">
     <div class="timeline-item">
       <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
       <div class="timeline-right">
-        <p class="timeline-phase">First — The depression</p>
+        <p class="timeline-phase">First: The depression</p>
         <p class="timeline-text">Before the burnout. Before anything else. A woman in her own darkness, learning what it means to not be able to feel her way out with her mind alone.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
       <div class="timeline-right">
-        <p class="timeline-phase">Then — The performing healer</p>
-        <p class="timeline-text">Yoga every day. Breathwork. Cacao ceremonies. Ecstatic dance. All of it — genuinely, devotedly. And underneath it all, still in survival. Because <em>every single practice was pointing up.</em> Elevate. Refine. Transcend. Ascend. Not one of them asked me to go down.</p>
+        <p class="timeline-phase">Then: The performing healer</p>
+        <p class="timeline-text">Yoga every day. Breathwork. Cacao ceremonies. Ecstatic dance. All of it, genuinely, devotedly. And underneath it all, still in survival. Because <em>every single practice was pointing up.</em> Elevate. Refine. Transcend. Ascend. Not one of them asked me to go down.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
       <div class="timeline-right">
-        <p class="timeline-phase">Then — The burnout</p>
-        <p class="timeline-text">Not despite the practices. Inside them. You can be immersed in the most beautiful spiritual containers and still be running from yourself — beautifully, gracefully, devotedly running. The burnout was not a failure. It was the body finally refusing to ascend any further.</p>
+        <p class="timeline-phase">Then: The burnout</p>
+        <p class="timeline-text">Not despite the practices. Inside them. You can be immersed in the most beautiful spiritual containers and still be running from yourself, beautifully, gracefully, devotedly running. The burnout was not a failure. It was the body finally refusing to ascend any further.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
       <div class="timeline-right">
-        <p class="timeline-phase">Then — The descent</p>
-        <p class="timeline-text">The community. The deeper work. The daily practice of going <em>in</em> rather than up. The shadow. The body. The silence of Vipassana, again and again. The parts that the yoga and the dance had been quietly, gracefully bypassing for years. It looked like nothing from the outside — soft, almost imperceptible. But it was the only direction that had ever been real.</p>
+        <p class="timeline-phase">Then: The descent</p>
+        <p class="timeline-text">The community. The deeper work. The daily practice of going <em>in</em> rather than up. The shadow. The body. The silence of Vipassana, again and again. The parts that the yoga and the dance had been quietly, gracefully bypassing for years. It looked like nothing from the outside, soft, almost imperceptible. But it was the only direction that had ever been real.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
       <div class="timeline-right">
-        <p class="timeline-phase">Then — The calling</p>
-        <p class="timeline-text">3am. A woman wakes up and starts writing. Not a business plan. <em>A program.</em> Something moved through her and she followed it. Her first client — a woman living in depression and fear — is now at peace. No longer in survival. That is when the knowing became undeniable: <em>this is the only thing you cannot learn in any school.</em> You have to go through it. I did. And now I know the way.</p>
+        <p class="timeline-phase">Then: The calling</p>
+        <p class="timeline-text">3am. A woman wakes up and starts writing. Not a business plan. <em>A program.</em> Something moved through her and she followed it. Her first client, a woman living in depression and fear, is now at peace. No longer in survival. That is when the knowing became undeniable: <em>this is the only thing you cannot learn in any school.</em> You have to go through it. I did. And now I know the way.</p>
       </div>
     </div>
   </div>
   <div class="origin-close">
-    Embodiment cannot be taught from the outside.<br>It can only be transmitted by someone who has descended — and come back.
+    Embodiment cannot be taught from the outside.<br>It can only be transmitted by someone who has descended, and come back.
   </div>
   <div class="brand-line">
     <p>"The body is the mentor."</p>
-    <span>— Zaharina</span>
+    <span>Zaharina</span>
   </div>
 </section>
 
@@ -328,14 +324,7 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
     <div class="cred-item"><div class="cred-num">18</div><div class="cred-label">Years as a<br>yoga teacher</div></div>
     <div class="cred-item"><div class="cred-num">10</div><div class="cred-label">Day Vipassana<br>multiple times</div></div>
     <div class="cred-item"><div class="cred-num">2</div><div class="cred-label">Years inside a<br>spiritual community</div></div>
-    <div class="cred-item"><div class="cred-num">3</div><div class="cred-label">Years guiding<br>women through descent</div></div>
-  </div>
-</div>
-
-<div class="testimonial-strip reveal" style="background:var(--cream);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);">
-  <div class="testimonial-strip-inner">
-    <p class="t-quote">"Zaharina became a portal back to myself. She reminded me of the importance of connection: to my inner world, to my power, and to my potential."</p>
-    <p class="t-name">— Merel Jessen</p>
+    <div class="cred-item"><div class="cred-num">3</div><div class="cred-label">Years as a<br>coach and mentor</div></div>
   </div>
 </div>
 
@@ -343,25 +332,25 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
   <div class="villain-inner">
     <span class="villain-label">The real obstacle</span>
     <p class="villain-quote">More healing. More processing.<br>More modalities. More work on yourself.</p>
-    <p class="villain-body">This is what the wellness industry sells. And for women like you — intelligent, spiritually literate, deeply self-aware — it becomes the most elegant trap of all.</p>
+    <p class="villain-body">This is what the wellness industry sells. And for women like you, intelligent, spiritually literate, deeply self-aware, it becomes the most elegant trap of all.</p>
     <p class="villain-body">You have turned your healing into <em>high-performance healing.</em> Another achievement. Another thing you are doing right. Processing as productivity. Retreats as résumé. Insight as identity.</p>
     <p class="villain-body">It keeps you endlessly busy with yourself. And it keeps you safely above the one thing that would actually change everything.</p>
     <div class="villain-reveal">The descent.<br>The shadow. The mess. The body.<br>The parts you have been spiritually bypassing for years.</div>
   </div>
 </div>
 
-<!-- METHOD SECTION — NEW -->
+<!-- METHOD SECTION -->
 <div class="method-intro reveal">
   <div class="method-intro-inner">
     <span class="section-label">The Method</span>
     <span class="method-name">Eros in Body Meant</span>
-    <h2 class="section-headline">Embodiment — with <em>Eros</em> at its centre.</h2>
+    <h2 class="section-headline">Embodiment, with <em>Eros</em> at its centre.</h2>
     <p class="body">Eros is not simply desire. It is the life force. The aliveness that has been waiting beneath every pattern you have tried to release from your mind.</p>
-    <p class="body">This is not a standardised programme with a fixed sequence. Zaharina senses, observes, and continuously adapts the work to the real needs of each woman. <em>Her intuition is the core of the method.</em> Using an evolving combination of practices — always alive, always attuned — she opens the space for transformation, liberation, and realignment exactly where and when it is needed.</p>
-    <p class="body">As you advance — as resistance falls and new awareness emerges — the practices shift with you. This is a living container, not a course you move through.</p>
+    <p class="body">This is not a standardised programme with a fixed sequence. Zaharina senses, observes, and continuously adapts the work to the real needs of each woman. <em>Her intuition is the core of the method.</em> Using an evolving combination of practices, always alive, always attuned, she opens the space for transformation, liberation, and realignment exactly where and when it is needed.</p>
+    <p class="body">As you advance, as resistance falls and new awareness emerges, the practices shift with you. This is a living container, not a course you move through.</p>
     <div class="method-pull">
-      "She doesn't offer a standardised programme — she feels, observes, and continuously adapts her accompaniment to each client's real needs. Through this intuitive listening, she identifies the right technique at the right moment — the one that will open a space of transformation, liberation, or realignment."
-      <cite>— Amal, client</cite>
+      "She doesn't offer a standardised programme. She feels, observes, and continuously adapts her accompaniment to each client's real needs. Through this intuitive listening, she identifies the right technique at the right moment: the one that will open a space of transformation, liberation, or realignment."
+      <cite>Amal, client</cite>
     </div>
   </div>
 </div>
@@ -370,18 +359,18 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
   <span class="section-label center">The mechanism</span>
   <h2 class="section-headline center">She Is Sovereign:<br><em>The Four Gateways</em></h2>
   <div class="gateways">
-    <div class="gateway reveal"><div class="gw-num">01</div><div class="gw-name">The Descent</div><div class="gw-subtitle">Shadow Work</div><p class="gw-body">We meet the unconscious in the body — not the mind. Not concepts about your shadow. The actual felt experience of what has been living below your awareness. Defenses soften. The real work begins.</p></div>
-    <div class="gateway reveal reveal-delay"><div class="gw-num">02</div><div class="gw-name">The Soma</div><div class="gw-subtitle">Somatic Work</div><p class="gw-body">The body completes what shadow opened. Stored experience moves through tissue, breath, sensation. This is where the nervous system finally stops bracing. Where you stop performing calm — and inhabit it.</p></div>
-    <div class="gateway reveal reveal-delay-2"><div class="gw-num">03</div><div class="gw-name">The Flame</div><div class="gw-subtitle">Sensual & Sexual Energy</div><p class="gw-body">The life force you have been managing, controlling, numbing — reawakened. Placed exactly here, after safety, because only a regulated body can receive this without shutting down or destabilising.</p></div>
-    <div class="gateway reveal"><div class="gw-num">04</div><div class="gw-name">The I AM</div><div class="gw-subtitle">New Identity Embodiment</div><p class="gw-body">The new self is not built. It is inhabited. Her voice, her presence, her magnetism — these are not performed. They emerge naturally from a woman who has descended, and come back as herself.</p></div>
+    <div class="gateway reveal"><div class="gw-num">01</div><div class="gw-name">The Descent</div><div class="gw-subtitle">Shadow Work</div><p class="gw-body">We meet the unconscious in the body, not the mind. Not concepts about your shadow. The actual felt experience of what has been living below your awareness. Defenses soften. The real work begins.</p></div>
+    <div class="gateway reveal reveal-delay"><div class="gw-num">02</div><div class="gw-name">The Soma</div><div class="gw-subtitle">Somatic Work</div><p class="gw-body">The body completes what shadow opened. Stored experience moves through tissue, breath, sensation. This is where the nervous system finally stops bracing. Where you stop performing calm, and inhabit it.</p></div>
+    <div class="gateway reveal reveal-delay-2"><div class="gw-num">03</div><div class="gw-name">The Flame</div><div class="gw-subtitle">Sensual & Sexual Energy</div><p class="gw-body">The life force you have been managing, controlling, numbing: reawakened. Placed exactly here, after safety, because only a regulated body can receive this without shutting down or destabilising.</p></div>
+    <div class="gateway reveal"><div class="gw-num">04</div><div class="gw-name">The I AM</div><div class="gw-subtitle">New Identity Embodiment</div><p class="gw-body">The new self is not built. It is inhabited. Her voice, her presence, her magnetism: these are not performed. They emerge naturally from a woman who has descended, and come back as herself.</p></div>
   </div>
   <p class="mechanism-close">The order is the method. Each gateway creates the neurological conditions the next one requires. You cannot build a sovereign identity in a body that has never been made safe. We go in sequence. We go all the way.</p>
 </section>
 
 <div class="testimonial-strip reveal" style="background:var(--ink);">
   <div class="testimonial-strip-inner">
-    <p class="t-quote" style="color:rgba(248,244,238,0.85);">"She takes you straight to the point with such power and so much softness and care — asking very direct questions in a seamless way which takes the process in the right direction without wasting time on the surface."</p>
-    <p class="t-name" style="color:var(--gold-light);">— Dita</p>
+    <p class="t-quote" style="color:rgba(248,244,238,0.85);">"Until working with Zaharina, this ‘subtle act’ had been completely invisible to me. She led me to recognize that I was actually abandoning myself, without even realizing it. Once I learned to stay with myself and hold myself through what I was experiencing, everything started to shift. It is the biggest shift I have made in my inner world."</p>
+    <p class="t-name" style="color:var(--gold-light);">Dita</p>
   </div>
 </div>
 
@@ -397,11 +386,11 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
       <div class="case-grid">
         <div>
           <p class="case-col-label">When she arrived</p>
-          <p class="case-col-text">She was doing everything — yoga, breathwork, all the practices. On the outside: a functioning business, a professional life held together. Inside: dissociation, panic attacks, locked in masculine energy. Her last relationship had been with a narcissist. She had lost almost all trust in herself. Every night she would wake up, scared her life was passing her by.</p>
+          <p class="case-col-text">She was doing everything: yoga, breathwork, all the practices. On the outside: a functioning business, a professional life held together. Inside: dissociation, panic attacks, locked in masculine energy. Her last relationship had been with a narcissist. She had lost almost all trust in herself. Every night she would wake up, scared her life was passing her by.</p>
         </div>
         <div>
-          <p class="case-col-label">Two months in — halfway</p>
-          <p class="case-col-text">She no longer wakes with anxiety. She trusts herself completely. She has said out loud: <em>"I love myself so much now that I will never abandon myself again."</em> Her presence has shifted — magnetic, grounded, fully here. And we still have two months to go.</p>
+          <p class="case-col-label">Two months in, halfway</p>
+          <p class="case-col-text">She no longer wakes with anxiety. She trusts herself completely. She has said out loud: <em>"I love myself so much now that I will never abandon myself again."</em> Her presence has shifted: magnetic, grounded, fully here. And we still have two months to go.</p>
         </div>
       </div>
       <div class="case-shift">
@@ -420,7 +409,7 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
     <h3 class="nfy-headline">This is not for you if…</h3>
     <ul class="nfy-list">
       <li>You are looking for a quick fix or a shortcut to feeling better</li>
-      <li>You are not yet ready to be honest with yourself — even when it is uncomfortable</li>
+      <li>You are not yet ready to be honest with yourself, even when it is uncomfortable</li>
       <li>You want someone to tell you what to do, rather than to meet you in who you are becoming</li>
       <li>You are in acute mental health crisis and need clinical therapeutic support</li>
     </ul>
@@ -432,20 +421,18 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
     <span class="section-label center">In their words</span>
     <h2 class="section-headline center">What women say<br>after the <em>descent.</em></h2>
     <div class="testimonials-grid">
-      <div class="t-card"><p class="t-card-quote">I felt myself return to my femininity, my sensuality, and my sexual life force — alive, fluid, and deeply rooted within me. Zaharina leads with depth, care, and embodied devotion.</p><span class="t-card-name">— Sonia Tani</span></div>
-      <div class="t-card"><p class="t-card-quote">She takes you straight to the point with such power and so much softness and care — asking very direct questions in a seamless way which takes the process in the right direction without wasting time on the surface.</p><span class="t-card-name">— Dita</span></div>
-      <div class="t-card"><p class="t-card-quote">In an hour, she connected me to my body in a way that I haven't experienced in years. I experienced real life transformation and emotional freedom which lands in the body. EMBODIMENT is the word, and she delivers it all the way through.</p><span class="t-card-name">— Ophélie</span></div>
-      <div class="t-card"><p class="t-card-quote">She helped me FEEL — all of it. For the first time in my life, I got to actually embody and feel what a boundary is on all levels, to befriend the power lying dormant in me. No more shrinking.</p><span class="t-card-name">— Ophélie</span></div>
+      <div class="t-card"><p class="t-card-quote">Zaharina became a portal back to myself. She reminded me of the importance of connection: to my inner world, to my power, and to my potential.</p><span class="t-card-name">Merel Jessen</span></div>
+      <div class="t-card"><p class="t-card-quote">She helped me FEEL, all of it. For the first time in my life, I got to actually embody and feel what a boundary is on all levels, to befriend the power lying dormant in me. No more shrinking.</p><span class="t-card-name">Ophélie</span></div>
     </div>
   </div>
 </section>
 
 <section class="commitment-section reveal" id="apply">
   <span class="section-label">The commitment</span>
-  <h2 class="section-headline">We work until it is<br><em>lived — not just understood.</em></h2>
+  <h2 class="section-headline">We work until it is<br><em>lived, not just understood.</em></h2>
   <div class="commitment-prose">
     <p>This is not a passive experience, and it is not a surface-level container.</p>
-    <p>If we work together, my commitment is to hold you with depth, honesty, precision, and care — until the shift is no longer something you understand intellectually, but something your body can actually live.</p>
+    <p>If we work together, my commitment is to hold you with depth, honesty, precision, and care, until the shift is no longer something you understand intellectually, but something your body can actually live.</p>
     <p>We are not here to make your healing sound beautiful. We are here to make your life feel different.</p>
     <p>This work is for the woman who is ready for real devotion to her own embodiment. Not perfection. Not performance. But willingness, honesty, and a desire to live beyond her current patterns.</p>
     <p><em>That is the standard of this space. And that is the level at which I will meet you.</em></p>
@@ -455,8 +442,8 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
 <div class="included-section reveal">
   <div class="included-inner">
     <span class="section-label center">The container</span>
-    <h2 class="section-headline center">A 6-month, high-touch mentorship<br>designed for <em>real transformation.</em></h2>
-    <p class="included-intro">Your experience is designed to be both deeply personalized and powerfully supportive. Over 6 months, you will receive:</p>
+    <h2 class="section-headline center">A high-touch private mentorship<br>designed for <em>real transformation.</em></h2>
+    <p class="included-intro">Your experience is designed to be both deeply personalized and powerfully supportive. Over 3 or 6 months, you will receive:</p>
     <div class="included-grid">
       <div class="included-card"><div class="included-card-num">01</div><div class="included-card-title">Private 1:1 Sessions</div><p class="included-card-body">Personalized coaching sessions focused on uncovering patterns, processing what is arising, and creating embodied shifts in how you live, relate, and lead.</p></div>
       <div class="included-card"><div class="included-card-num">02</div><div class="included-card-title">Somatic + Nervous System Support</div><p class="included-card-body">Trauma-aware practices and guidance to help you regulate, soften survival strategies, and increase your capacity for safety, connection, and self-trust.</p></div>
@@ -466,8 +453,11 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
       <div class="included-card"><div class="included-card-num">06</div><div class="included-card-title">A Tailored Private Container</div><p class="included-card-body">Every element of this experience is shaped around your specific patterns, needs, and next level of embodiment.</p></div>
     </div>
     <div class="investment-box">
-      <div class="investment-amount">€10,000</div>
-      <p class="investment-sub">Full six-month private journey · payment plans available</p>
+      <div class="investment-options">
+        <div class="investment-option"><div class="investment-amount">3 Months</div><p class="investment-option-sub">A focused private journey</p></div>
+        <div class="investment-option"><div class="investment-amount">6 Months</div><p class="investment-option-sub">The full descent</p></div>
+      </div>
+      <p class="investment-sub">Choose the length that fits you · I take only a few clients at a time, so I can fully focus on each one</p>
       <a class="btn-gold" href="https://forms.gle/n5NddvC1dQuB94Nh6" target="_blank">Apply for She Is Sovereign</a>
     </div>
   </div>
@@ -476,15 +466,15 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
 <section class="faq-section reveal">
   <span class="section-label">Questions</span>
   <h2 class="section-headline">The things you are<br>probably <em>wondering.</em></h2>
-  <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span class="faq-question-text">I've already done years of therapy, coaching, or healing work. How is this different?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Because this work is not centered on more understanding. It is centered on <em>embodiment.</em><br><br>Many women come here deeply self-aware. They can name the pattern, explain the wound, and articulate the dynamic beautifully — but they still do not feel free inside of their own lives.<br><br>This work helps bridge that gap. We work with the body, the nervous system, identity, and lived relational patterns so the shift becomes real, not just intellectual.</div></div></div>
+  <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span class="faq-question-text">I've already done years of therapy, coaching, or healing work. How is this different?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Because this work is not centered on more understanding. It is centered on <em>embodiment.</em><br><br>Many women come here deeply self-aware. They can name the pattern, explain the wound, and articulate the dynamic beautifully, but they still do not feel free inside of their own lives.<br><br>This work helps bridge that gap. We work with the body, the nervous system, identity, and lived relational patterns so the shift becomes real, not just intellectual.</div></div></div>
   <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span class="faq-question-text">Is this therapy?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">No. This is a private somatic mentorship and embodiment container.<br><br>While this work is trauma-aware and deeply supportive, it is not psychotherapy, diagnosis, or clinical treatment. It is designed for women who want to move beyond insight into embodied self-trust, emotional safety, and sovereignty.</div></div></div>
   <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span class="faq-question-text">I'm high-functioning. I'm doing well. I just know something is still off. Is this for me?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><em>Yes.</em><br><br>This work is especially for the woman whose life looks "good" from the outside, but whose inner experience still feels effortful, braced, over-managed, or disconnected.<br><br>You do not need to be in crisis to be ready for deeper embodiment.</div></div></div>
-  <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span class="faq-question-text">Will this require a lot more work from me?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Not in the way you may be used to.<br><br>This is not about adding more performance to your life. It is about removing what is unsustainable. While the work does require honesty, presence, and devotion, it is designed to create more internal space — not more pressure.</div></div></div>
+  <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span class="faq-question-text">Will this require a lot more work from me?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Not in the way you may be used to.<br><br>This is not about adding more performance to your life. It is about removing what is unsustainable. While the work does require honesty, presence, and devotion, it is designed to create more internal space, not more pressure.</div></div></div>
   <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span class="faq-question-text">What kind of woman is this for?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">This is for the woman who is self-aware, growth-oriented, emotionally intelligent, and ready for a deeper level of truth than mindset alone can offer.<br><br>She has likely already invested in herself. She is not looking for quick fixes. She is ready for a private, high-touch process that helps her inhabit the power she already knows is there.</div></div></div>
-  <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span class="faq-question-text">What happens over the 6 months?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">We move through a highly personalized somatic process focused on revealing patterns, unwinding nervous system bracing, restoring self-trust, and integrating the work into your real life.<br><br>Your experience is tailored, but the intention is always the same: to move from performance and protection into <em>embodiment and sovereignty.</em></div></div></div>
+  <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span class="faq-question-text">What happens over the 3 or 6 months?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">We move through a highly personalized somatic process focused on revealing patterns, unwinding nervous system bracing, restoring self-trust, and integrating the work into your real life.<br><br>Your experience is tailored, but the intention is always the same: to move from performance and protection into <em>embodiment and sovereignty.</em></div></div></div>
   <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span class="faq-question-text">How do I know if I'm ready?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">You are likely ready if you are no longer satisfied with insight alone.<br><br>If you are tired of understanding yourself without fully feeling free… if you can sense that your next level is not about doing more, but becoming more deeply embodied… if you are ready to be met in a private and powerful way…<br><br><em>If you know your next level requires more than insight, you're invited to begin here.</em></div></div></div>
   <div class="faq-cta">
-    <p class="faq-cta-text">If something in you just said yes —<br>trust that.</p>
+    <p class="faq-cta-text">If something in you just said yes,<br>trust that.</p>
     <a class="btn-gold" href="https://forms.gle/n5NddvC1dQuB94Nh6" target="_blank">Submit your application →</a>
   </div>
 </section>
@@ -495,11 +485,10 @@ footer{text-align:center;padding:40px 32px;border-top:0.5px solid var(--border);
   <h2 class="final-headline">You have built the life.<br>Now come home to<br><em>the woman living it.</em></h2>
   <p class="final-sub">You have ascended beautifully. The next move is different. It goes inward. It goes down. And it is the only direction left that will actually change something.</p>
   <a class="btn-gold" href="https://forms.gle/n5NddvC1dQuB94Nh6" target="_blank">Apply for She Is Sovereign</a>
-  <p class="final-note">2 spaces remaining this quarter</p>
-  <p class="final-brand">"The body is the mentor." — Zaharina</p>
+  <p class="final-brand">"The body is the mentor." · Zaharina</p>
 </div>
 
-<footer><p>© 2025 Zaharina &nbsp;·&nbsp; She Is Sovereign &nbsp;·&nbsp; All rights reserved</p></footer>
+<footer><p>© 2026 Zaharina &nbsp;·&nbsp; She Is Sovereign &nbsp;·&nbsp; All rights reserved</p></footer>
 
 <script>
 function toggleFaq(btn){
